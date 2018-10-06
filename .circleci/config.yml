@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  publish:
+  build:
     docker:
       - image: cibuilds/hugo:latest
     working_directory: ~/repo
