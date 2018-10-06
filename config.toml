@@ -2,6 +2,7 @@ baseURL = "https://sneas.github.io/blog"
 languageCode = "en-us"
 title = "A bit of insights on software design"
 theme = "minimal"
+publishDir = "gh-pages"
 
 [params]
     author = "Dmitry Snisarenko"
