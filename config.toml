@@ -1,6 +1,6 @@
 baseURL = "https://sneas.github.io/blog"
 languageCode = "en-us"
-title = "A bit of insights on software design"
+title = "A bit of insight into software design"
 theme = "minimal"
 publishDir = "dist"
 
