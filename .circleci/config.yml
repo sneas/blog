@@ -1,9 +1,12 @@
 version: 2
 jobs:
-  build:
+  publish:
     docker:
       - image: cibuilds/hugo:latest
     working_directory: ~/repo
+    branches:
+      only:
+        - master
     steps:
       - checkout
       - run: hugo
