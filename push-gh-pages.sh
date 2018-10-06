@@ -1,7 +1,5 @@
 #!/bin/sh
 
-git config user.email "snisarenkodima@gmail.com"
-git config user.name "Dima Snisarenko (CircleCI)"
 git commit -am "Save uncommited changes (WIP)"
 git branch --delete --force gh-pages
 git checkout --orphan gh-pages
