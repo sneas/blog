@@ -1,0 +1,32 @@
+baseURL = "https://sneas.github.io/blog"
+languageCode = "en-us"
+title = "A bit of insights on software design"
+theme = "minimal"
+
+[params]
+    author = "Dmitry Snisarenko"
+    description = "Personal blog theme powered by Hugo"
+    githubUsername = "sneas"
+    accent = "red"
+    showBorder = false
+    backgroundColor = "white"
+    font = "Raleway" # should match the name on Google Fonts!
+    highlight = true
+    highlightStyle = "atom-one-light"
+    highlightLanguages = ["javascript", "typescript", "bash"]
+    css = ["css/code.css"]
+
+[[menu.main]]
+    url = "/"
+    name = "Home"
+    weight = 1
+
+[[menu.main]]
+    url = "/about/"
+    name = "About"
+    weight = 2
+
+[[menu.icon]]
+    url = "https://github.com/sneas/"
+    name = "github"
+    weight = 1
