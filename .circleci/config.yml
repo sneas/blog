@@ -7,4 +7,11 @@ jobs:
     steps:
       steps:
         - checkout
+        - run: npm install
+          - save_cache:
+              paths:
+              - node_modules
+              key: v1-dependencies-{{ checksum "package.json" }}
         - run: hugo
+        - run: npm run deploy
+

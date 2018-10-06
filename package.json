@@ -1,0 +1,21 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sneas/blog.git"
+  },
+  "author": "Dima Snisarenko <snisarenkodima@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sneas/blog/issues"
+  },
+  "homepage": "https://github.com/sneas/blog#readme",
+  "devDependencies": {
+    "gh-pages": "2.0.1"
+  }
+}
