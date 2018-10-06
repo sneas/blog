@@ -1,5 +1,7 @@
 #!/bin/sh
 
+git config user.email $GH_EMAIL
+git config user.name $GH_NAME
 git commit -am "Save uncommited changes (WIP)"
 git branch --delete --force gh-pages
 git checkout --orphan gh-pages
