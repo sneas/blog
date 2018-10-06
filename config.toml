@@ -16,6 +16,7 @@ publishDir = "dist"
     highlightStyle = "atom-one-light"
     highlightLanguages = ["javascript", "typescript", "bash"]
     css = ["css/code.css", "css/body.css"]
+    favicon = "favicon.ico"
 
 [[menu.main]]
     url = "/"
