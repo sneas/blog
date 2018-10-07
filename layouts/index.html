@@ -1,8 +1,8 @@
 {{ partial "header" . }}
 
-<main>
+<main class="container">
 
-  <h2>{{ .Title }}</h2>
+  <h1>{{ .Title }}</h1>
 
   {{ range (.Paginator 5).Pages }} {{ partial "list-item" . }} {{ end }}
 

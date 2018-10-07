@@ -15,7 +15,6 @@ Our pre-requisites are:
 
 Current blog is successfully working with the same principles. You can check the CI configuration
 out
-
 [here<i class="fa fa-github"></i>](https://github.com/sneas/blog/tree/master/.circleci).
 
 ### Bash script file

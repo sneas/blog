@@ -1,6 +1,6 @@
 {{ partial "header" . }}
 
-<main>
+<main class="container">
 
     <div class="item">
         {{ .Date.Format (.Site.Params.dateFormat | default "January 2, 2006") | $.Scratch.Set "subtitle" }}

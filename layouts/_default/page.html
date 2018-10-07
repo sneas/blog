@@ -1,11 +1,8 @@
 {{ partial "header" . }}
 
-<main>
-
-    <h2>{{ .Title }}</h2>
-
+<main class="container">
+    <h1>{{ .Title }}</h1>
     <br> <div class="text-justify">{{ .Content }}</div>
-
 </main>
 
 {{ partial "footer.html" . }}

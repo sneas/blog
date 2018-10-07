@@ -36,40 +36,30 @@
 
     <body>
         {{ partial "body-open" . }}
-        <nav class="navbar navbar-default">
 
+        <nav class="navbar navbar-expand-md navbar-light bg-light mb-4">
             <div class="container">
-
-                <div class="navbar-header">
-
-                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
-                </div>
-
-                <div class="collapse navbar-collapse">
-
+                <span class="nav-brand"></span>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
                     {{ if .Site.Menus.main }}
-                        <ul class="nav navbar-nav">
-                            {{ range sort .Site.Menus.main }}
-                                <li><a href="{{ .URL }}">{{ .Name }}</a></li>
-                            {{ end }}
-                        </ul>
+                    <ul class="navbar-nav mr-auto">
+                        {{ range sort .Site.Menus.main }}
+                        <li class="nav-item"><a href="{{ .URL }}" class="nav-link">{{ .Name }}</a></li>
+                        {{ end }}
+                    </ul>
                     {{ end }}
 
                     {{ if .Site.Menus.icon }}
-                        <ul class="nav navbar-nav navbar-right">
-                            {{ range sort .Site.Menus.icon }}
-                                <li class="navbar-icon"><a href="{{ .URL }}"><i class="fa fa-{{ .Name }}"></i></a></li>
-                            {{ end }}
-                        </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        {{ range sort .Site.Menus.icon }}
+                        <li class="nav-item"><a href="{{ .URL }}" class="nav-link"><i class="fa fa-{{ .Name }}"></i></a></li>
+                        {{ end }}
+                    </ul>
                     {{ end }}
-
                 </div>
-
             </div>
-
         </nav>
+

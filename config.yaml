@@ -1,7 +1,6 @@
 baseURL: 'https://sneas.github.io/blog'
 languageCode: en-us
 title: A bit of insight into software design
-theme: minimal
 publishDir: dist
 canonifyURLs: true
 params:
@@ -19,10 +18,6 @@ params:
     - typescript
     - bash
     - yaml
-  css:
-    - css/code.css
-    - css/body.css
-    - css/fontawesome.css
   favicon: favicon.ico
 menu:
   main:
