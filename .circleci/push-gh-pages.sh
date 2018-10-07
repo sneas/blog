@@ -12,4 +12,4 @@ git add -f dist
 git commit -m "Rebuild GitHub pages [ci skip]"
 git filter-branch -f --prune-empty --subdirectory-filter dist && git push -f origin gh-pages
 git checkout $MAIN_BRANCH
-git stash apply
+git stash apply || :
