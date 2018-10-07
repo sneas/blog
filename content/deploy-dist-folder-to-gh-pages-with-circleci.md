@@ -15,7 +15,7 @@ Our pre-requisites are:
 
 Current blog is successfully working with the same principles. You can check the CI configuration
 out
-[here<i class="fa fa-github"></i>](https://github.com/sneas/blog/tree/master/.circleci).
+[here<i class="fa fa-github pl-1"></i>](https://github.com/sneas/blog/tree/master/.circleci).
 
 ### Bash script file
 
@@ -52,7 +52,7 @@ It's time to create/update CI config file `.circleci/config.yml`.
 
 I commented `# docker image` and `# necessary steps to create dist folder` because images and steps
 could very from project to project. If you're wondering how it's done for this blog you can refer to
-[this config <i class="fa fa-github"></i>](https://github.com/sneas/blog/tree/master/.circleci/config.yml).
+[this config <i class="fa fa-github pl-1"></i>](https://github.com/sneas/blog/tree/master/.circleci/config.yml).
 
 ```yaml
 version: 2

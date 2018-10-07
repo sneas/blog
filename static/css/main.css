@@ -90,10 +90,6 @@ img {
     max-width: 100%;
 }
 
-a .fa:last-child {
-    padding-left: 0.5rem;
-}
-
 code {
     padding: 2px 4px;
     font-size: 90%;
