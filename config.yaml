@@ -1,0 +1,35 @@
+baseURL: 'https://sneas.github.io/blog'
+languageCode: en-us
+title: A bit of insight into software design
+theme: minimal
+publishDir: dist
+params:
+  author: Dmitry Snisarenko
+  description: Personal blog theme powered by Hugo
+  githubUsername: sneas
+  accent: '#0366d6'
+  showBorder: false
+  backgroundColor: white
+  font: Raleway
+  highlight: true
+  highlightStyle: atom-one-light
+  highlightLanguages:
+    - javascript
+    - typescript
+    - bash
+  css:
+    - css/code.css
+    - css/body.css
+  favicon: favicon.ico
+menu:
+  main:
+    - url: /
+      name: Home
+      weight: 1
+    - url: /about/
+      name: About
+      weight: 2
+  icon:
+    - url: 'https://github.com/sneas/'
+      name: github
+      weight: 1
