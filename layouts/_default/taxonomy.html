@@ -1,0 +1,13 @@
+{{ partial "header" . }}
+
+<main class="container">
+
+  <h1>{{ .Title }}</h1>
+
+  {{ range (.Paginator 5).Pages }} {{ partial "list-item" . }} {{ end }}
+
+</main>
+
+{{ partial "paginator" . }}
+
+{{ partial "footer" . }}

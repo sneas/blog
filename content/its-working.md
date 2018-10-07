@@ -1,6 +1,16 @@
 ---
 title: "OMG! The blog is working"
 date: 2018-10-06T13:20:56+02:00
+tags:
+ - circle-ci
+ - github
+ - ci
+ - gh-pages
+ - hugo
+categories:
+ - Circle CI
+ - GitHub
+ - Hugo CMS
 ---
 
 And not only working. It's fully automated with the help of [CircleCI](https://circleci.com).
