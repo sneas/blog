@@ -12,7 +12,7 @@
             | {{ $.Scratch.Get "subtitle" }}
         </h6>
         {{ range .Params.tags }}
-        <a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}" class="badge badge-light">{{ . }}</a>
+        <a href="{{ $.Site.BaseURL }}/tags/{{ . | urlize }}" class="badge badge-light">{{ . }}</a>
         {{ end }}
 
     </div>
