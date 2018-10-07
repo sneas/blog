@@ -3,6 +3,7 @@ languageCode: en-us
 title: A bit of insight into software design
 theme: minimal
 publishDir: dist
+canonifyURLs: true
 params:
   author: Dmitry Snisarenko
   description: Personal blog theme powered by Hugo
@@ -17,9 +18,11 @@ params:
     - javascript
     - typescript
     - bash
+    - yaml
   css:
     - css/code.css
     - css/body.css
+    - css/fontawesome.css
   favicon: favicon.ico
 menu:
   main:
