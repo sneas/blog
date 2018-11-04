@@ -2,6 +2,12 @@
 title: "Unit testing mistakes, beliefs and misconceptions"
 date: 2018-11-03T09:06:08+01:00
 lastmod: 2018-11-03T09:06:08+01:00
+tags:
+ - unit-testing
+ - tdd
+categories:
+ - Unit testing
+ - TDD
 ---
 ![build passing](/images/build-passing.svg)
 ![coverage 100%](/images/coverage-100.svg)
