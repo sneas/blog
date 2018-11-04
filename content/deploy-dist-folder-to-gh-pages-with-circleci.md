@@ -1,5 +1,5 @@
 ---
-title: "Deploy Dist Folder to GitHub Pages With CircleCI"
+title: "Deploy dist folder to GitHub Pages with CircleCI"
 date: 2018-10-07T09:03:15+02:00
 tags:
  - circle-ci
