@@ -1,6 +1,7 @@
 ---
 title: "Deploy dist folder to GitHub Pages with CircleCI"
 date: 2018-10-07T09:03:15+02:00
+lastmod: 2018-11-23T21:08:08+01:00
 tags:
  - circle-ci
  - github
@@ -32,8 +33,8 @@ First of all we are going to create bash script and save it in `.circleci/push-g
 ```bash
 #!/bin/sh
 
-[ ! -z "$GH_NAME" ] && git config user.email $GH_NAME
-[ ! -z "$GH_EMAIL" ] && git config user.email $GH_EMAIL
+[ ! -z "$GH_NAME" ] && git config user.name "$GH_NAME"
+[ ! -z "$GH_EMAIL" ] && git config user.email "$GH_EMAIL"
 
 MAIN_BRANCH=$(git symbolic-ref --short HEAD)
 DIST="${1:-dist}";
