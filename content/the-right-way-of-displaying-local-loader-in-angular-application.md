@@ -1,7 +1,14 @@
 ---
 title: "The right way of displaying local loader in Angular application"
-date: 2018-12-12T18:16:23+01:00
-lastmod: 2018-12-12T18:16:23+01:00
+date: 2018-12-12T16:16:23+01:00
+lastmod: 2018-12-12T16:16:23+01:00
+tags:
+ - angular
+ - rxjs
+ - http-client
+categories:
+ - Angular
+ - RxJS
 ---
 
 ```typescript
