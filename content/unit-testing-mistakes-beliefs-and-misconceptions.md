@@ -1,7 +1,7 @@
 ---
 title: "Unit testing mistakes, beliefs and misconceptions"
 date: 2018-11-03T09:06:08+01:00
-lastmod: 2018-11-03T09:06:08+01:00
+lastmod: 2018-12-12T13:58:08+01:00
 tags:
  - unit-testing
  - tdd
@@ -80,7 +80,7 @@ about unit testing.
 ## Typical mistakes
 
 The below mistakes indicate problems with code. While the best solution might be refactoring of existing code, the overall
-observation is: **it's better to not to have tests at all than to have tests like these**.
+observation is: **your project doesn't need that kind of tests**.
 
 #### Expose code's internal structure
 
