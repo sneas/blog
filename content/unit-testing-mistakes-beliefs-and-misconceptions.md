@@ -24,7 +24,7 @@ Let's start with some beliefs and misconceptions.
 ### TDD is about unit testing
 
 *TDD* is a design process intended to improve code's quality and it's about creating tests before writing code.
-On the other hand *unit testing* is a process of covering existing code with tests. And it doesn't supply
+Contrarily, *unit testing* is a process of covering existing code with tests. And it doesn't supply
 overall code's quality but *may* lead to further refactoring of existing code.
 
 While TDD helps in creating decoupled, cohesive, modular code unit testing
