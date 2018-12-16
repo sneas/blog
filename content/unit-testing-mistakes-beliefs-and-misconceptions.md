@@ -1,7 +1,7 @@
 ---
 title: "Unit testing mistakes, beliefs and misconceptions"
 date: 2018-11-03T09:06:08+01:00
-lastmod: 2018-12-12T13:58:08+01:00
+lastmod: 2018-12-16T12:41:08+01:00
 tags:
  - unit-testing
  - tdd
@@ -62,7 +62,7 @@ from another bias created by combination of facts:
 It's easy to dive into this conclusion being backed up the previous belief of *Tests prevent bugs*.
 
 The disappointment in unit testing may arise as soon as organisation reaches the magical 100% in code coverage but
-still being suffer of bugs.
+still suffers of bugs.
 
 ### Tests protect from accidental code changes
 
@@ -73,8 +73,7 @@ Consider the next scenario:
 1. developer *fixed* the failing unit test
 1. PR created
 
-What is the chance the erroneous change to be approved by another developer during the code review? Errors
-backed up by unit tests have better chance to be approved. Especially if approving person also has religious beliefs
+What is the chance the erroneous change to be approved by another developer during the code review? Errors defended by unit tests have better chance to be approved. Especially if approving person also has religious beliefs
 about unit testing.
 
 ## Typical mistakes
@@ -97,7 +96,7 @@ Symptoms:
 * insuring 3rd party library works as expected
 * too many mocks, pre and post conditions
 
-Most of the time you can see it on testing view and controller layer of the app.
+Most of the time it reveals by testing view and controller layer of the app.
 
 #### Testing for the sake of testing
 
