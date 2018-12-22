@@ -45,7 +45,7 @@ One more drawback of this method is inability of using it with
 
 ## The better
 
-The right way would be to automatically display loader on every subscription.
+The better way would be to automatically display loader on every subscription.
 Unfortunately RxJS does not provide a ready-to-use operator for this.
 
 That's why we're going to create our own `doOnSubscribe` pipe operator:
