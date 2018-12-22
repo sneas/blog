@@ -1,7 +1,7 @@
 ---
-title: "The right way of displaying local loader in Angular application"
+title: "A better way of displaying local loader in Angular application"
 date: 2018-12-12T16:16:23+01:00
-lastmod: 2018-12-12T16:16:23+01:00
+lastmod: 2018-12-22T16:16:06+01:00
 tags:
  - angular
  - rxjs
@@ -10,6 +10,7 @@ categories:
  - Angular
  - RxJS
 ---
+## Not so good
 
 ```typescript
 displayLoader('Loading...');
@@ -19,7 +20,7 @@ this.productsService.getAll()
     );
 ```
 
-You've probably seen the above construction in your project. I've been
+You've probably seen the above construct in your project. I've been
 doing the same either. This way doesn't look correct to me. Indeed this way of displaying and hiding
 loaders produces so-called *temporal coupling* by separating display/hide actions and welding hide together with
 service function making it impossible to call `this.productsService.getAll()` without preliminary calling `displayLoader('loading')`.
@@ -30,17 +31,19 @@ emerges and we inevitably wrap the call into separate function:
 ```typescript
 public getAllProducts() {
   displayLoader('Loading...');
-  return this.productsService.getAll()
+  this.productsService.getAll()
       .pipe(
           finalize(() => hideLoader())
-      );
+      ).subscribe((products) => {
+        this.products = products;
+      });
 }
 ```
 
-One more drawback of this method is inability of using it in combination with
+One more drawback of this method is inability of using it with
 `async` pipe and inevitably forcing developers to manage subscriptions manually.
 
-## The right way
+## The better
 
 The right way would be to automatically display loader on every subscription.
 Unfortunately RxJS does not provide a ready-to-use operator for this.
