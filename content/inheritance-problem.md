@@ -1,7 +1,7 @@
 ---
 title: "The problem with class inheritance"
-date: 2013-01-03T09:21:00+01:00
-lastmod: 2013-01-03T09:21:00+01:00
+date: 2019-01-03T09:21:00+01:00
+lastmod: 2019-01-03T09:21:00+01:00
 tags:
  - oop
  - design
@@ -9,7 +9,6 @@ tags:
 categories:
  - OOP
  - Design
-draft: true
 ---
 <blockquote class="blockquote text-right">
   <p class="mb-0">Favor object composition over class inheritance.</p>
