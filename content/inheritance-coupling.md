@@ -47,7 +47,7 @@ The other day business decides to add the 3rd instance. And it needs only half o
 
 But something smells in this design. It doesn't look that good anymore.
 Shit hits the fan as soon as business needs a `ConcreteSolver4` with `method1` and `method2`.
-There a multiple ways of providing this but none of them are semantically correct.
+There are multiple ways of providing this but none of them are semantically correct.
 
 
 
