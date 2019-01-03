@@ -1,7 +1,7 @@
 ---
-title: "Inheritance as a tightest form of coupling"
-date: 2018-12-17T09:21:00+01:00
-lastmod: 2018-12-17T09:21:00+01:00
+title: "The problem with class inheritance"
+date: 2013-01-03T09:21:00+01:00
+lastmod: 2013-01-03T09:21:00+01:00
 tags:
  - oop
  - design
@@ -18,16 +18,14 @@ draft: true
 
 [GoF](http://wiki.c2.com/?GangOfFour) stated this over two decades ago.
 Some warmly accepted languages (Go, Rust) refused of inheritance at all.
-But it seems many developers haven't gotten it and still do inheritance to share code between classes.
-The code looks professional and elaborated at the first glance.
+But it seems many developers haven't gotten the problem and still do inheritance to share code between classes.
+The code looks advanced at the first glance.
 But evolves into a chimera in no time.
 
-We try to design our code to be future proof. Flexible. Ready for unpredictable changes. We want to blame business
-with it's capricious requirements standing on the way of the perfect system based on our perfectly-crafted `BaseSolver` class.
+The intention of code's design is to be future proof and flexible. Ready for unpredictable changes. And inheritance in combination with changing business
+requirements stand on the way of the perfect system based on our perfectly-crafted `BaseSolver` class.
 
-And again and again our `AbstractWorker` turns into something we would like to burn... and build a new, better `BaseAbstractWorker`.
-
-Here is the diagram showing the way it normally starts
+Here is the diagram showing the beginning of disaster:
 
 <figure class="figure">
     <img class="figure-img" src="/images/inheritance/base-class.png" alt="The class diagram showing keeping common methods in Base class" width="600" />
