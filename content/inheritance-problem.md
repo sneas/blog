@@ -1,7 +1,7 @@
 ---
-title: "The problem with class inheritance"
+title: "A problem with class inheritance"
 date: 2019-01-03T09:21:00+01:00
-lastmod: 2019-01-03T09:21:00+01:00
+lastmod: 2019-02-26T12:07:00+01:00
 tags:
  - oop
  - design
