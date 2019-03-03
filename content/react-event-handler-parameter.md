@@ -1,8 +1,7 @@
 ---
-title: "Another way of passing parameter into event handler in React"
+title: "An alternative way of passing parameter into event handler in React"
 date: 2019-03-02T13:07:35+01:00
-lastmod: 2019-03-02T13:07:35+01:00
-draft: true
+lastmod: 2019-03-03T14:44:35+01:00
 tags:
  - react
  - dom-events
@@ -15,23 +14,25 @@ There are two popular ways of passing parameters into event handlers in React. L
 ## Currying
 
 ```jsx harmony
-handleClick = (index) => (e) => {
-  // Handle stuff
-}
+class List extends Component {
+  handleClick = (index) => (e) => {
+    // Do something with index
+  }
 
-render() {
-  return (
-    <ul>
-      {this.props.items.map((itemText, index) => (
-        <li
-          key={index}
-          onClick={this.handleClick(index)}
-        >
-          {{ itemText }}
-        </li>
-      ))}
-    </ul>
-  );
+  render() {
+    return (
+      <ul>
+        {this.props.items.map((itemText, index) => (
+          <li
+            key={index}
+            onClick={this.handleClick(index)}
+          >
+            {{itemText}}
+          </li>
+        ))}
+      </ul>
+    );
+  }
 }
 ```
 
@@ -85,30 +86,34 @@ var ListItem = createReactClass({
     - replacing `<ul>` with another tag requires inevitable `ListItem` refactoring which complicates `ListItem` reusage
     - `ListItem` become container-dependent which limits it's reusage outside of `List`
     
-## Another way
+It's time to discuss a perfomant alternative to above methods. Which is
+    
+## Parameter in tag's attribute
 
-What if we pass param right into tag's attribute while rendering and extract that param in handler?
+What if we pass parameter right into tag's attribute while rendering. And extract that param in handler?
 
 ```jsx harmony
-handleClick = (e) => {
-  const index = e.target.getAttribute('data-index');
-  // Do stuff with index
-}
+class List extends Component {
+  handleClick = (e) => {
+    const index = e.target.getAttribute('data-index');
+    // Do something with index
+  }
 
-render() {
-  return (
-    <ul>
-      {this.props.items.map((itemText, index) => (
-        <li
-          key={index}
-          data-index={index}
-          onClick={this.handleClick}
-        >
-          {{ itemText }}
-        </li>
-      ))}
-    </ul>
-  );
+  render() {
+    return (
+      <ul>
+        {this.props.items.map((itemText, index) => (
+          <li
+            key={index}
+            data-index={index}
+            onClick={this.handleClick}
+          >
+            {{ itemText }}
+          </li>
+        ))}
+      </ul>
+    );
+  }
 }
 ```
 
@@ -117,26 +122,20 @@ This seems reasonable. But the above solution has following limitations:
 * target of event could be different if list item element contains children
 * the parameter is stored in attribute as a string
 
-While it is possible to gracefully solve the first problem and limit the second one,
-please welcome [react-event-param](https://github.com/sneas/react-event-param).
+It is possible to gracefully solve the first problem and limit the second one.
+Please welcome [react-event-param](https://github.com/sneas/react-event-param).
 
-The library provides an easy way to transparently pass a callback param right into to a tag and
+The library provides an easy way to pass a callback param right into to a tag and
 get it back in a callback handler:
 
 ```jsx harmony
 import React, { Component } from "react";
 import { setEventParam, getEventParam } from "react-event-param";
 
-class ItemList extends Component {
-  state = {
-    selectedIndex: null
-  };
-
+class List extends Component {
   onItemClick = e => {
     const index = getEventParam(e.target);
-    this.setState({
-      selectedIndex: index
-    });
+    // Do something with index
   };
 
   render() {
@@ -155,14 +154,11 @@ class ItemList extends Component {
     );
   }
 }
-
-export default ItemList;
 ```
 
 **Pros**
 
-* No extra bindings and class instances get created
-* Probably, the most memory-efficient solution
+* No extra bindings and class instances
 
 **Cons**
 
