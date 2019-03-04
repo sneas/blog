@@ -19,6 +19,7 @@ params:
     - typescript
     - bash
     - yaml
+    - jsx
   favicon: favicon.ico
 menu:
   main:

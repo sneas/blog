@@ -7,6 +7,12 @@ body {
     padding-bottom: 60px;
 }
 
+@media (min-width: 1200px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
 .footer {
     position: absolute;
     bottom: 0;
@@ -90,10 +96,6 @@ img {
     max-width: 100%;
 }
 
-code {
-    padding: 2px 4px;
-    font-size: 90%;
-    color: #c7254e;
-    background-color: #f9f2f4;
-    border-radius: 4px;
+pre[class*=language-] {
+    margin: 32px 0;
 }
