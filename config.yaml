@@ -3,6 +3,7 @@ languageCode: en-us
 title: A bit of insight into software design
 publishDir: dist
 canonifyURLs: true
+googleAnalytics: 'UA-135464443-1'
 params:
   author: Dmitry Snisarenko
   description: Personal blog theme powered by Hugo
