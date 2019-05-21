@@ -1,7 +1,7 @@
 ---
 title: "A problem with class inheritance"
 date: 2019-01-03T09:21:00+01:00
-lastmod: 2019-02-26T12:07:00+01:00
+lastmod: 2019-05-21T10:04:00+01:00
 tags:
  - oop
  - design
@@ -43,7 +43,7 @@ The other day business decides to add the 3rd instance. And it needs only half o
 </figure>
 
 But something smells in this design. It doesn't look that good anymore.
-Shit hits the fan as soon as business needs a `ConcreteSolver4` with `method1` and `method2`.
+Things get worse as soon as business needs a `ConcreteSolver4` with `method1` and `method2`.
 There are multiple ways of providing this but none of them are semantically correct.
 
 
