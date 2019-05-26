@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://sneas.github.io/blog/</loc>
+    <lastmod>2019-05-21T10:04:00+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sneas.github.io/blog/react-event-handler-parameter/</loc>
+    <lastmod>2019-03-03T14:44:35+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sneas.github.io/blog/categories/</loc>
+    <lastmod>2019-05-21T10:04:00+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sneas.github.io/blog/categories/react/</loc>
+    <lastmod>2019-03-03T14:44:35+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sneas.github.io/blog/tags/</loc>
+    <lastmod>2019-05-21T10:04:00+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sneas.github.io/blog/tags/dom-events/</loc>
+    <lastmod>2019-03-03T14:44:35+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sneas.github.io/blog/tags/react/</loc>
+    <lastmod>2019-03-03T14:44:35+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sneas.github.io/blog/inheritance-problem/</loc>
+    <lastmod>2019-05-21T10:04:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sneas.github.io/blog/categories/design/</loc>
+    <lastmod>2019-05-21T10:04:00+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sneas.github.io/blog/categories/oop/</loc>
+    <lastmod>2019-05-21T10:04:00+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sneas.github.io/blog/tags/design/</loc>
+    <lastmod>2019-05-21T10:04:00+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sneas.github.io/blog/tags/inheritance/</loc>
+    <lastmod>2019-05-21T10:04:00+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sneas.github.io/blog/tags/oop/</loc>
+    <lastmod>2019-05-21T10:04:00+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sneas.github.io/blog/a-better-way-of-displaying-local-loader-in-angular-application/</loc>
+    <lastmod>2018-12-22T16:16:06+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sneas.github.io/blog/categories/angular/</loc>
+    <lastmod>2018-12-22T16:16:06+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sneas.github.io/blog/categories/rxjs/</loc>
+    <lastmod>2018-12-22T16:16:06+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sneas.github.io/blog/tags/angular/</loc>
+    <lastmod>2018-12-22T16:16:06+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sneas.github.io/blog/tags/http-client/</loc>
+    <lastmod>2018-12-22T16:16:06+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sneas.github.io/blog/tags/rxjs/</loc>
+    <lastmod>2018-12-22T16:16:06+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sneas.github.io/blog/categories/tdd/</loc>
+    <lastmod>2018-12-16T12:41:08+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sneas.github.io/blog/categories/unit-testing/</loc>
+    <lastmod>2018-12-16T12:41:08+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sneas.github.io/blog/unit-testing-mistakes-beliefs-and-misconceptions/</loc>
+    <lastmod>2018-12-16T12:41:08+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sneas.github.io/blog/tags/tdd/</loc>
+    <lastmod>2018-12-16T12:41:08+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sneas.github.io/blog/tags/unit-testing/</loc>
+    <lastmod>2018-12-16T12:41:08+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sneas.github.io/blog/categories/circle-ci/</loc>
+    <lastmod>2018-11-23T21:08:08+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sneas.github.io/blog/deploy-dist-folder-to-gh-pages-with-circleci/</loc>
+    <lastmod>2018-11-23T21:08:08+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sneas.github.io/blog/categories/github/</loc>
+    <lastmod>2018-11-23T21:08:08+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sneas.github.io/blog/tags/ci/</loc>
+    <lastmod>2018-11-23T21:08:08+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sneas.github.io/blog/tags/circle-ci/</loc>
+    <lastmod>2018-11-23T21:08:08+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sneas.github.io/blog/tags/gh-pages/</loc>
+    <lastmod>2018-11-23T21:08:08+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sneas.github.io/blog/tags/github/</loc>
+    <lastmod>2018-11-23T21:08:08+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sneas.github.io/blog/categories/hugo-cms/</loc>
+    <lastmod>2018-10-06T13:20:56+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sneas.github.io/blog/its-working/</loc>
+    <lastmod>2018-10-06T13:20:56+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sneas.github.io/blog/tags/hugo/</loc>
+    <lastmod>2018-10-06T13:20:56+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sneas.github.io/blog/about/</loc>
+  </url>
+  
+</urlset>

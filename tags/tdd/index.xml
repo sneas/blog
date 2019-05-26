@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tdd on A bit of insight into software design</title>
+    <link>https://sneas.github.io/blog/tags/tdd/</link>
+    <description>Recent content in tdd on A bit of insight into software design</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 03 Nov 2018 09:06:08 +0100</lastBuildDate>
+    
+	<atom:link href="https://sneas.github.io/blog/tags/tdd/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Unit testing mistakes, beliefs and misconceptions</title>
+      <link>https://sneas.github.io/blog/unit-testing-mistakes-beliefs-and-misconceptions/</link>
+      <pubDate>Sat, 03 Nov 2018 09:06:08 +0100</pubDate>
+      
+      <guid>https://sneas.github.io/blog/unit-testing-mistakes-beliefs-and-misconceptions/</guid>
+      <description>While unit testing may contribute to overall product&amp;rsquo;s quality and help preventing some refactoring mistakes most organisations suffer because of unit testing by doing it incorrectly being biased by certain beliefs and misconceptions.
+Beliefs and misconceptions Let&amp;rsquo;s start with some beliefs and misconceptions.
+TDD is about unit testing TDD is a design process intended to improve code&amp;rsquo;s quality and it&amp;rsquo;s about creating tests before writing code. Contrarily, unit testing is a process of covering existing code with tests.</description>
+    </item>
+    
+  </channel>
+</rss>

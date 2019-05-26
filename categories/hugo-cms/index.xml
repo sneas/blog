@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo CMS on A bit of insight into software design</title>
+    <link>https://sneas.github.io/blog/categories/hugo-cms/</link>
+    <description>Recent content in Hugo CMS on A bit of insight into software design</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 06 Oct 2018 13:20:56 +0200</lastBuildDate>
+    
+	<atom:link href="https://sneas.github.io/blog/categories/hugo-cms/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>OMG! The blog is working</title>
+      <link>https://sneas.github.io/blog/its-working/</link>
+      <pubDate>Sat, 06 Oct 2018 13:20:56 +0200</pubDate>
+      
+      <guid>https://sneas.github.io/blog/its-working/</guid>
+      <description>And not only working. It&amp;rsquo;s fully automated with the help of CircleCI.
+How it works?
+ The blog files are stored on GitHub. It&amp;rsquo;s markdown. Every time I do a commit in order to create or update a page, the blog gets regenerated and published on GitHub Pages.  I spent some time configuring CircleCI to automatically publish blog&amp;rsquo;s content. I&amp;rsquo;m going to explain how to do it in the next post.</description>
+    </item>
+    
+  </channel>
+</rss>

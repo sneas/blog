@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>http-client on A bit of insight into software design</title>
+    <link>https://sneas.github.io/blog/tags/http-client/</link>
+    <description>Recent content in http-client on A bit of insight into software design</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 12 Dec 2018 16:16:23 +0100</lastBuildDate>
+    
+	<atom:link href="https://sneas.github.io/blog/tags/http-client/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A better way of displaying local loader in Angular application</title>
+      <link>https://sneas.github.io/blog/a-better-way-of-displaying-local-loader-in-angular-application/</link>
+      <pubDate>Wed, 12 Dec 2018 16:16:23 +0100</pubDate>
+      
+      <guid>https://sneas.github.io/blog/a-better-way-of-displaying-local-loader-in-angular-application/</guid>
+      <description>Not so good displayLoader(&#39;Loading...&#39;); this.productsService.getAll() .pipe( finalize(() =&amp;gt; hideLoader()) );  You&amp;rsquo;ve probably seen the above construct in your project. I&amp;rsquo;ve been doing the same either. This way doesn&amp;rsquo;t look correct to me. Indeed this way of displaying and hiding loaders produces so-called temporal coupling by separating display/hide actions and welding hide together with service function making it impossible to call this.productsService.getAll() without preliminary calling displayLoader(&#39;loading&#39;).
+The problem turns obvious as soon as the necessity of reusing this.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on A bit of insight into software design</title>
+    <link>https://sneas.github.io/blog/tags/</link>
+    <description>Recent content in Tags on A bit of insight into software design</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 02 Mar 2019 13:07:35 +0100</lastBuildDate>
+    
+	<atom:link href="https://sneas.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>dom-events</title>
+      <link>https://sneas.github.io/blog/tags/dom-events/</link>
+      <pubDate>Sat, 02 Mar 2019 13:07:35 +0100</pubDate>
+      
+      <guid>https://sneas.github.io/blog/tags/dom-events/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>react</title>
+      <link>https://sneas.github.io/blog/tags/react/</link>
+      <pubDate>Sat, 02 Mar 2019 13:07:35 +0100</pubDate>
+      
+      <guid>https://sneas.github.io/blog/tags/react/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>design</title>
+      <link>https://sneas.github.io/blog/tags/design/</link>
+      <pubDate>Thu, 03 Jan 2019 09:21:00 +0100</pubDate>
+      
+      <guid>https://sneas.github.io/blog/tags/design/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>inheritance</title>
+      <link>https://sneas.github.io/blog/tags/inheritance/</link>
+      <pubDate>Thu, 03 Jan 2019 09:21:00 +0100</pubDate>
+      
+      <guid>https://sneas.github.io/blog/tags/inheritance/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>oop</title>
+      <link>https://sneas.github.io/blog/tags/oop/</link>
+      <pubDate>Thu, 03 Jan 2019 09:21:00 +0100</pubDate>
+      
+      <guid>https://sneas.github.io/blog/tags/oop/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>angular</title>
+      <link>https://sneas.github.io/blog/tags/angular/</link>
+      <pubDate>Wed, 12 Dec 2018 16:16:23 +0100</pubDate>
+      
+      <guid>https://sneas.github.io/blog/tags/angular/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>http-client</title>
+      <link>https://sneas.github.io/blog/tags/http-client/</link>
+      <pubDate>Wed, 12 Dec 2018 16:16:23 +0100</pubDate>
+      
+      <guid>https://sneas.github.io/blog/tags/http-client/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rxjs</title>
+      <link>https://sneas.github.io/blog/tags/rxjs/</link>
+      <pubDate>Wed, 12 Dec 2018 16:16:23 +0100</pubDate>
+      
+      <guid>https://sneas.github.io/blog/tags/rxjs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tdd</title>
+      <link>https://sneas.github.io/blog/tags/tdd/</link>
+      <pubDate>Sat, 03 Nov 2018 09:06:08 +0100</pubDate>
+      
+      <guid>https://sneas.github.io/blog/tags/tdd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>unit-testing</title>
+      <link>https://sneas.github.io/blog/tags/unit-testing/</link>
+      <pubDate>Sat, 03 Nov 2018 09:06:08 +0100</pubDate>
+      
+      <guid>https://sneas.github.io/blog/tags/unit-testing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ci</title>
+      <link>https://sneas.github.io/blog/tags/ci/</link>
+      <pubDate>Sun, 07 Oct 2018 09:03:15 +0200</pubDate>
+      
+      <guid>https://sneas.github.io/blog/tags/ci/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>circle-ci</title>
+      <link>https://sneas.github.io/blog/tags/circle-ci/</link>
+      <pubDate>Sun, 07 Oct 2018 09:03:15 +0200</pubDate>
+      
+      <guid>https://sneas.github.io/blog/tags/circle-ci/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gh-pages</title>
+      <link>https://sneas.github.io/blog/tags/gh-pages/</link>
+      <pubDate>Sun, 07 Oct 2018 09:03:15 +0200</pubDate>
+      
+      <guid>https://sneas.github.io/blog/tags/gh-pages/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github</title>
+      <link>https://sneas.github.io/blog/tags/github/</link>
+      <pubDate>Sun, 07 Oct 2018 09:03:15 +0200</pubDate>
+      
+      <guid>https://sneas.github.io/blog/tags/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hugo</title>
+      <link>https://sneas.github.io/blog/tags/hugo/</link>
+      <pubDate>Sat, 06 Oct 2018 13:20:56 +0200</pubDate>
+      
+      <guid>https://sneas.github.io/blog/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

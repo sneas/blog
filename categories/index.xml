@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on A bit of insight into software design</title>
+    <link>https://sneas.github.io/blog/categories/</link>
+    <description>Recent content in Categories on A bit of insight into software design</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 02 Mar 2019 13:07:35 +0100</lastBuildDate>
+    
+	<atom:link href="https://sneas.github.io/blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>React</title>
+      <link>https://sneas.github.io/blog/categories/react/</link>
+      <pubDate>Sat, 02 Mar 2019 13:07:35 +0100</pubDate>
+      
+      <guid>https://sneas.github.io/blog/categories/react/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Design</title>
+      <link>https://sneas.github.io/blog/categories/design/</link>
+      <pubDate>Thu, 03 Jan 2019 09:21:00 +0100</pubDate>
+      
+      <guid>https://sneas.github.io/blog/categories/design/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>OOP</title>
+      <link>https://sneas.github.io/blog/categories/oop/</link>
+      <pubDate>Thu, 03 Jan 2019 09:21:00 +0100</pubDate>
+      
+      <guid>https://sneas.github.io/blog/categories/oop/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Angular</title>
+      <link>https://sneas.github.io/blog/categories/angular/</link>
+      <pubDate>Wed, 12 Dec 2018 16:16:23 +0100</pubDate>
+      
+      <guid>https://sneas.github.io/blog/categories/angular/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RxJS</title>
+      <link>https://sneas.github.io/blog/categories/rxjs/</link>
+      <pubDate>Wed, 12 Dec 2018 16:16:23 +0100</pubDate>
+      
+      <guid>https://sneas.github.io/blog/categories/rxjs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TDD</title>
+      <link>https://sneas.github.io/blog/categories/tdd/</link>
+      <pubDate>Sat, 03 Nov 2018 09:06:08 +0100</pubDate>
+      
+      <guid>https://sneas.github.io/blog/categories/tdd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Unit testing</title>
+      <link>https://sneas.github.io/blog/categories/unit-testing/</link>
+      <pubDate>Sat, 03 Nov 2018 09:06:08 +0100</pubDate>
+      
+      <guid>https://sneas.github.io/blog/categories/unit-testing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Circle CI</title>
+      <link>https://sneas.github.io/blog/categories/circle-ci/</link>
+      <pubDate>Sun, 07 Oct 2018 09:03:15 +0200</pubDate>
+      
+      <guid>https://sneas.github.io/blog/categories/circle-ci/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GitHub</title>
+      <link>https://sneas.github.io/blog/categories/github/</link>
+      <pubDate>Sun, 07 Oct 2018 09:03:15 +0200</pubDate>
+      
+      <guid>https://sneas.github.io/blog/categories/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo CMS</title>
+      <link>https://sneas.github.io/blog/categories/hugo-cms/</link>
+      <pubDate>Sat, 06 Oct 2018 13:20:56 +0200</pubDate>
+      
+      <guid>https://sneas.github.io/blog/categories/hugo-cms/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

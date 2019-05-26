@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+         
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>A better way of displaying local loader in Angular application</title>
+        
+        <link rel="icon" href="https://sneas.github.io/blog/favicon.ico">
+        
+        
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism.min.css">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<style>
+
+  html body {
+    font-family: 'Raleway', sans-serif;
+  background-color: white;
+  }
+
+  :root {
+    --accent: #0366d6;
+  --border-width:  0 ;
+  }
+
+</style>
+
+
+<link rel="stylesheet" href="https://sneas.github.io/blog/css/main.css">
+
+
+
+ 
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js"></script>
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-javascript.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-typescript.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-bash.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-yaml.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-jsx.min.js"></script> 
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+ <meta name="generator" content="Hugo 0.55.6" />
+        
+
+        
+        
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135464443-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-135464443-1');
+        </script>
+        
+    </head>
+
+    
+    
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+
+    <body>
+         
+
+        <nav class="navbar navbar-expand-md navbar-light bg-light mb-4">
+            <div class="container">
+                <span class="nav-brand"></span>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    
+                    <ul class="navbar-nav mr-auto">
+                        
+                        <li class="nav-item"><a href="https://sneas.github.io/blog/" class="nav-link">Home</a></li>
+                        
+                        <li class="nav-item"><a href="https://sneas.github.io/blog/about/" class="nav-link">About</a></li>
+                        
+                    </ul>
+                    
+
+                    
+                    <ul class="nav navbar-nav navbar-right">
+                        
+                        <li class="nav-item"><a href="https://github.com/sneas/" class="nav-link"><i class="fa fa-github"></i></a></li>
+                        
+                    </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+
+
+<main class="container">
+
+    <div class="item">
+        
+        
+
+        <h1>A better way of displaying local loader in Angular application</h1>
+        <h6 class="text-muted">
+            2 minutes read
+            | December 12, 2018
+        </h6>
+        
+        <a href="https://sneas.github.io/blog/tags/angular" class="badge badge-light">angular</a>
+        
+        <a href="https://sneas.github.io/blog/tags/rxjs" class="badge badge-light">rxjs</a>
+        
+        <a href="https://sneas.github.io/blog/tags/http-client" class="badge badge-light">http-client</a>
+        
+
+    </div>
+
+
+    <br> <div class="text-justify">
+
+<h2 id="not-so-good">Not so good</h2>
+
+<pre><code class="language-typescript">displayLoader('Loading...');
+this.productsService.getAll()
+    .pipe(
+        finalize(() =&gt; hideLoader())
+    );
+</code></pre>
+
+<p>You&rsquo;ve probably seen the above construct in your project. I&rsquo;ve been
+doing the same either. This way doesn&rsquo;t look correct to me. Indeed this way of displaying and hiding
+loaders produces so-called <em>temporal coupling</em> by separating display/hide actions and welding hide together with
+service function making it impossible to call <code>this.productsService.getAll()</code> without preliminary calling <code>displayLoader('loading')</code>.</p>
+
+<p>The problem turns obvious as soon as the necessity of reusing <code>this.productsService.getAll()</code> method in component
+emerges and we inevitably wrap the call into separate function:</p>
+
+<pre><code class="language-typescript">public getAllProducts() {
+  displayLoader('Loading...');
+  this.productsService.getAll()
+      .pipe(
+          finalize(() =&gt; hideLoader())
+      ).subscribe((products) =&gt; {
+        this.products = products;
+      });
+}
+</code></pre>
+
+<p>One more drawback of this method is inability of using it with
+<code>async</code> pipe and inevitably forcing developers to manage subscriptions manually.</p>
+
+<h2 id="the-better">The better</h2>
+
+<p>The better way would be to automatically display loader on every subscription.
+Unfortunately RxJS does not provide a ready-to-use operator for this.</p>
+
+<p>That&rsquo;s why we&rsquo;re going to create our own <code>doOnSubscribe</code> pipe operator:</p>
+
+<pre><code class="language-typescript">// do-on-subscribe.operator.ts
+
+import { defer, Observable } from 'rxjs';
+
+export const doOnSubscribe = (onSubscribe: () =&gt; void) =&gt; &lt;T&gt;(
+    source: Observable&lt;T&gt;,
+) =&gt;
+    defer(() =&gt; {
+        onSubscribe();
+        return source;
+    });
+</code></pre>
+
+<p>After <code>doOnSubscribe</code> operator is ready we can use it on HttpClient observables:</p>
+
+<pre><code class="language-typescript">this.allProducts$ = this.productsService.getAll()
+    .pipe(
+        doOnSubscribe(() =&gt; displayLoader('Loading...')),
+        finalize(() =&gt; hideLoader())
+    );
+
+</code></pre>
+
+<p>The above method guaranties loader would be properly displayed and hidden on every subscription.
+The newly created &ldquo;pure&rdquo; observable could be used with <code>async</code> pipe or in combination with other observables:</p>
+
+<pre><code class="language-html">&lt;div *ngFor=&quot;let product of allProducts$ | async&quot;&gt;
+  {{ product.name }}
+&lt;/div&gt;
+</code></pre>
+</div>
+
+    
+    
+
+    
+
+    
+
+</main>
+
+        <footer class="footer text-center">
+
+            <div class="copyright text-muted">&copy; All rights reserved.</div>
+
+        </footer>
+       
+    </body>
+
+</html>
+

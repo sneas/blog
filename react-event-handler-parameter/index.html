@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+         
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>An alternative way of passing parameter into event handler in React</title>
+        
+        <link rel="icon" href="https://sneas.github.io/blog/favicon.ico">
+        
+        
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism.min.css">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<style>
+
+  html body {
+    font-family: 'Raleway', sans-serif;
+  background-color: white;
+  }
+
+  :root {
+    --accent: #0366d6;
+  --border-width:  0 ;
+  }
+
+</style>
+
+
+<link rel="stylesheet" href="https://sneas.github.io/blog/css/main.css">
+
+
+
+ 
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js"></script>
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-javascript.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-typescript.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-bash.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-yaml.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-jsx.min.js"></script> 
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+ <meta name="generator" content="Hugo 0.55.6" />
+        
+
+        
+        
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135464443-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-135464443-1');
+        </script>
+        
+    </head>
+
+    
+    
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+
+    <body>
+         
+
+        <nav class="navbar navbar-expand-md navbar-light bg-light mb-4">
+            <div class="container">
+                <span class="nav-brand"></span>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    
+                    <ul class="navbar-nav mr-auto">
+                        
+                        <li class="nav-item"><a href="https://sneas.github.io/blog/" class="nav-link">Home</a></li>
+                        
+                        <li class="nav-item"><a href="https://sneas.github.io/blog/about/" class="nav-link">About</a></li>
+                        
+                    </ul>
+                    
+
+                    
+                    <ul class="nav navbar-nav navbar-right">
+                        
+                        <li class="nav-item"><a href="https://github.com/sneas/" class="nav-link"><i class="fa fa-github"></i></a></li>
+                        
+                    </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+
+
+<main class="container">
+
+    <div class="item">
+        
+        
+
+        <h1>An alternative way of passing parameter into event handler in React</h1>
+        <h6 class="text-muted">
+            3 minutes read
+            | Mar 2
+        </h6>
+        
+        <a href="https://sneas.github.io/blog/tags/react" class="badge badge-light">react</a>
+        
+        <a href="https://sneas.github.io/blog/tags/dom-events" class="badge badge-light">dom-events</a>
+        
+
+    </div>
+
+
+    <br> <div class="text-justify">
+
+<p>There are two popular ways of passing parameters into event handlers in React. Let have a look at them first.</p>
+
+<h2 id="currying">Currying</h2>
+
+<pre><code class="language-jsx">class List extends Component {
+  handleClick = (index) =&gt; (e) =&gt; {
+    // Do something with index
+  }
+
+  render() {
+    return (
+      &lt;ul&gt;
+        {this.props.items.map((itemText, index) =&gt; (
+          &lt;li
+            key={index}
+            onClick={this.handleClick(index)}
+          &gt;
+            {{itemText}}
+          &lt;/li&gt;
+        ))}
+      &lt;/ul&gt;
+    );
+  }
+}
+</code></pre>
+
+<p><strong>Pros</strong></p>
+
+<ul>
+<li>Clean and simple syntax</li>
+</ul>
+
+<p><strong>Cons</strong></p>
+
+<ul>
+<li>The solution generates a new function for each list item which increases memory consumption</li>
+</ul>
+
+<h2 id="sub-components">Sub components</h2>
+
+<pre><code class="language-jsx">var List = createReactClass({
+  render() {
+    return (
+      &lt;ul&gt;
+        {this.props.items.map(item =&gt;
+          &lt;ListItem key={item.id} item={item} onItemClick={this.props.onItemClick} /&gt;
+        )}
+      &lt;/ul&gt;
+    );
+  }
+});
+
+var ListItem = createReactClass({
+  render() {
+    return (
+      &lt;li onClick={this._onClick}&gt;
+        ...
+      &lt;/li&gt;
+    );
+  },
+  _onClick() {
+    this.props.onItemClick(this.props.item.id);
+  }
+});
+</code></pre>
+
+<p><strong>Pros</strong></p>
+
+<ul>
+<li>Absence of bindings</li>
+</ul>
+
+<p><strong>Cons</strong></p>
+
+<ul>
+<li>New class instance for every item which increases memory consumption</li>
+<li>Creates coupling between List and ListItem components:
+
+<ul>
+<li>replacing <code>&lt;ul&gt;</code> with another tag requires inevitable <code>ListItem</code> refactoring which complicates <code>ListItem</code> reusage</li>
+<li><code>ListItem</code> become container-dependent which limits it&rsquo;s reusage outside of <code>List</code>
+<br /></li>
+</ul></li>
+</ul>
+
+<p>It&rsquo;s time to discuss a perfomant alternative to above methods. Which is</p>
+
+<h2 id="parameter-in-tag-s-attribute">Parameter in tag&rsquo;s attribute</h2>
+
+<p>What if we pass parameter right into tag&rsquo;s attribute while rendering. And extract that param in handler?</p>
+
+<pre><code class="language-jsx">class List extends Component {
+  handleClick = (e) =&gt; {
+    const index = e.target.getAttribute('data-index');
+    // Do something with index
+  }
+
+  render() {
+    return (
+      &lt;ul&gt;
+        {this.props.items.map((itemText, index) =&gt; (
+          &lt;li
+            key={index}
+            data-index={index}
+            onClick={this.handleClick}
+          &gt;
+            {{ itemText }}
+          &lt;/li&gt;
+        ))}
+      &lt;/ul&gt;
+    );
+  }
+}
+</code></pre>
+
+<p>This seems reasonable. But the above solution has following limitations:</p>
+
+<ul>
+<li>target of event could be different if list item element contains children</li>
+<li>the parameter is stored in attribute as a string</li>
+</ul>
+
+<p>It is possible to gracefully solve the first problem and limit the second one.
+Please welcome <a href="https://github.com/sneas/react-event-param">react-event-param</a>.</p>
+
+<p>The library provides an easy way to pass a callback param right into to a tag and
+get it back in a callback handler:</p>
+
+<pre><code class="language-jsx">import React, { Component } from &quot;react&quot;;
+import { setEventParam, getEventParam } from &quot;react-event-param&quot;;
+
+class List extends Component {
+  onItemClick = e =&gt; {
+    const index = getEventParam(e.target);
+    // Do something with index
+  };
+
+  render() {
+    return (
+      &lt;ul&gt;
+        {this.props.items.map((itemText, index) =&gt; (
+          &lt;li
+            key={index}
+            {...setEventParam(index)}
+            onClick={this.onItemClick}
+          &gt;
+            {{ itemText }}
+          &lt;/li&gt;
+        ))}
+      &lt;/ul&gt;
+    );
+  }
+}
+</code></pre>
+
+<p><strong>Pros</strong></p>
+
+<ul>
+<li>No extra bindings and class instances</li>
+</ul>
+
+<p><strong>Cons</strong></p>
+
+<ul>
+<li>Param gets serialized while rendering and deserialized in callback which brings certain limitations:
+
+<ul>
+<li>no function or class instance could be passed into attribute and successfully retrieved in event handler</li>
+<li>parameter looses it&rsquo;s reference which is not a big deal for sacalar values, but could be misleading
+in case of objects and arrays</li>
+</ul></li>
+</ul>
+</div>
+
+    
+    
+
+    
+
+    
+
+</main>
+
+        <footer class="footer text-center">
+
+            <div class="copyright text-muted">&copy; All rights reserved.</div>
+
+        </footer>
+       
+    </body>
+
+</html>
+

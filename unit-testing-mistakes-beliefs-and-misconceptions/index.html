@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+         
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Unit testing mistakes, beliefs and misconceptions</title>
+        
+        <link rel="icon" href="https://sneas.github.io/blog/favicon.ico">
+        
+        
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism.min.css">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<style>
+
+  html body {
+    font-family: 'Raleway', sans-serif;
+  background-color: white;
+  }
+
+  :root {
+    --accent: #0366d6;
+  --border-width:  0 ;
+  }
+
+</style>
+
+
+<link rel="stylesheet" href="https://sneas.github.io/blog/css/main.css">
+
+
+
+ 
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js"></script>
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-javascript.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-typescript.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-bash.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-yaml.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-jsx.min.js"></script> 
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+ <meta name="generator" content="Hugo 0.55.6" />
+        
+
+        
+        
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135464443-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-135464443-1');
+        </script>
+        
+    </head>
+
+    
+    
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+
+    <body>
+         
+
+        <nav class="navbar navbar-expand-md navbar-light bg-light mb-4">
+            <div class="container">
+                <span class="nav-brand"></span>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    
+                    <ul class="navbar-nav mr-auto">
+                        
+                        <li class="nav-item"><a href="https://sneas.github.io/blog/" class="nav-link">Home</a></li>
+                        
+                        <li class="nav-item"><a href="https://sneas.github.io/blog/about/" class="nav-link">About</a></li>
+                        
+                    </ul>
+                    
+
+                    
+                    <ul class="nav navbar-nav navbar-right">
+                        
+                        <li class="nav-item"><a href="https://github.com/sneas/" class="nav-link"><i class="fa fa-github"></i></a></li>
+                        
+                    </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+
+
+<main class="container">
+
+    <div class="item">
+        
+        
+
+        <h1>Unit testing mistakes, beliefs and misconceptions</h1>
+        <h6 class="text-muted">
+            3 minutes read
+            | November 3, 2018
+        </h6>
+        
+        <a href="https://sneas.github.io/blog/tags/unit-testing" class="badge badge-light">unit-testing</a>
+        
+        <a href="https://sneas.github.io/blog/tags/tdd" class="badge badge-light">tdd</a>
+        
+
+    </div>
+
+
+    <br> <div class="text-justify">
+
+<p><img src="https://sneas.github.io/blog/images/build-passing.svg" alt="build passing" />
+<img src="https://sneas.github.io/blog/images/coverage-100.svg" alt="coverage 100%" />
+<img src="https://sneas.github.io/blog/images/the_code_is_bug_free-i_swear.svg" alt="the code is bug free i swear" /></p>
+
+<p>While unit testing <em>may</em> contribute to overall product&rsquo;s quality and help preventing some refactoring mistakes most
+organisations suffer because of unit testing by doing it incorrectly being biased by certain beliefs and
+misconceptions.</p>
+
+<h2 id="beliefs-and-misconceptions">Beliefs and misconceptions</h2>
+
+<p>Let&rsquo;s start with some beliefs and misconceptions.</p>
+
+<h3 id="tdd-is-about-unit-testing">TDD is about unit testing</h3>
+
+<p><em>TDD</em> is a design process intended to improve code&rsquo;s quality and it&rsquo;s about creating tests before writing code.
+Contrarily, <em>unit testing</em> is a process of covering existing code with tests. And it doesn&rsquo;t supply
+overall code&rsquo;s quality but <em>may</em> lead to further refactoring of existing code.</p>
+
+<p>While TDD helps in creating decoupled, cohesive, modular code unit testing
+may contribute to code coupling and create problems for further refactoring.</p>
+
+<p><a href="https://xebia.com/blog/tdd-not-unit-tests/">This article</a> explains why TDD is not about unit tests.</p>
+
+<h3 id="tests-prevent-bugs">Tests prevent bugs</h3>
+
+<pre><code class="language-javascript">// plus.js
+function plus(a, b) {
+  return a - b;
+}
+
+// plus.spec.js
+it('should correctly add two numbers', () =&gt; {
+  expect(plus(7, 5)).toBe(2);
+})
+</code></pre>
+
+<p>The above code isn&rsquo;t bug free but it&rsquo;s tested.</p>
+
+<p>The point is duplicating logic in different files doesn&rsquo;t prove the code works correctly.</p>
+
+<p>The next misconception derives from the current but it&rsquo;s worth listing separately</p>
+
+<h3 id="100-coverage-make-code-absolutely-bug-free">100% coverage make code absolutely bug free</h3>
+
+<p>While previous example shows why code coverage can not guarantee code quality, <strong>100% coverage</strong> misconception derives
+from another bias created by combination of facts:</p>
+
+<p><em>our code is not fully covered</em> <strong>+</strong> <em>we have bugs</em> <strong>=</strong> <em>covering our code will free us from bugs</em>.</p>
+
+<p>It&rsquo;s easy to dive into this conclusion being backed up the previous belief of <em>Tests prevent bugs</em>.</p>
+
+<p>The disappointment in unit testing may arise as soon as organisation reaches the magical 100% in code coverage but
+still suffers of bugs.</p>
+
+<h3 id="tests-protect-from-accidental-code-changes">Tests protect from accidental code changes</h3>
+
+<p>Consider the next scenario:</p>
+
+<ol>
+<li>developer changed the code on purpose and unintentionally made a mistake</li>
+<li>unit tests <em>expectedly</em> failed, because code has changed</li>
+<li>developer <em>fixed</em> the failing unit test</li>
+<li>PR created</li>
+</ol>
+
+<p>What is the chance the erroneous change to be approved by another developer during the code review? Errors defended by unit tests have better chance to be approved. Especially if approving person also has religious beliefs
+about unit testing.</p>
+
+<h2 id="typical-mistakes">Typical mistakes</h2>
+
+<p>The below mistakes indicate problems with code. While the best solution might be refactoring of existing code, the overall
+observation is: <strong>your project doesn&rsquo;t need that kind of tests</strong>.</p>
+
+<h4 id="expose-code-s-internal-structure">Expose code&rsquo;s internal structure</h4>
+
+<p>Symptoms:</p>
+
+<ul>
+<li>mock the response of internally-called function</li>
+<li>it&rsquo;s difficult to give the assertion proper name and most of the time one assertion test <em>everything</em>
+<code>it('should work correctly', () =&gt; {})</code></li>
+</ul>
+
+<h4 id="test-3rd-party-libraries">Test 3rd party libraries</h4>
+
+<p>Symptoms:</p>
+
+<ul>
+<li>insuring 3rd party library works as expected</li>
+<li>too many mocks, pre and post conditions</li>
+</ul>
+
+<p>Most of the time it reveals by testing view and controller layer of the app.</p>
+
+<h4 id="testing-for-the-sake-of-testing">Testing for the sake of testing</h4>
+
+<p>Symptom: test simple code.</p>
+
+<h4 id="conditional-logic-in-unit-tests">Conditional logic in unit tests</h4>
+
+<p>Symptom: conditional logic in unit tests (<code>if</code>, <code>switch</code>, <code>while</code>, etc).</p>
+</div>
+
+    
+    
+
+    
+
+    
+
+</main>
+
+        <footer class="footer text-center">
+
+            <div class="copyright text-muted">&copy; All rights reserved.</div>
+
+        </footer>
+       
+    </body>
+
+</html>
+

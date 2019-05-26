@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>react on A bit of insight into software design</title>
+    <link>https://sneas.github.io/blog/tags/react/</link>
+    <description>Recent content in react on A bit of insight into software design</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 02 Mar 2019 13:07:35 +0100</lastBuildDate>
+    
+	<atom:link href="https://sneas.github.io/blog/tags/react/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>An alternative way of passing parameter into event handler in React</title>
+      <link>https://sneas.github.io/blog/react-event-handler-parameter/</link>
+      <pubDate>Sat, 02 Mar 2019 13:07:35 +0100</pubDate>
+      
+      <guid>https://sneas.github.io/blog/react-event-handler-parameter/</guid>
+      <description>There are two popular ways of passing parameters into event handlers in React. Let have a look at them first.
+Currying class List extends Component { handleClick = (index) =&amp;gt; (e) =&amp;gt; { // Do something with index } render() { return ( &amp;lt;ul&amp;gt; {this.props.items.map((itemText, index) =&amp;gt; ( &amp;lt;li key={index} onClick={this.handleClick(index)} &amp;gt; {{itemText}} &amp;lt;/li&amp;gt; ))} &amp;lt;/ul&amp;gt; ); } }  Pros
+ Clean and simple syntax  Cons
+ The solution generates a new function for each list item which increases memory consumption  Sub components var List = createReactClass({ render() { return ( &amp;lt;ul&amp;gt; {this.</description>
+    </item>
+    
+  </channel>
+</rss>

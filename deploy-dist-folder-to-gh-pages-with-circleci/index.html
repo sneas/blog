@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+         
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Deploy dist folder to GitHub Pages with CircleCI</title>
+        
+        <link rel="icon" href="https://sneas.github.io/blog/favicon.ico">
+        
+        
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism.min.css">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<style>
+
+  html body {
+    font-family: 'Raleway', sans-serif;
+  background-color: white;
+  }
+
+  :root {
+    --accent: #0366d6;
+  --border-width:  0 ;
+  }
+
+</style>
+
+
+<link rel="stylesheet" href="https://sneas.github.io/blog/css/main.css">
+
+
+
+ 
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js"></script>
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-javascript.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-typescript.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-bash.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-yaml.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-jsx.min.js"></script> 
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+ <meta name="generator" content="Hugo 0.55.6" />
+        
+
+        
+        
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135464443-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-135464443-1');
+        </script>
+        
+    </head>
+
+    
+    
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+
+    <body>
+         
+
+        <nav class="navbar navbar-expand-md navbar-light bg-light mb-4">
+            <div class="container">
+                <span class="nav-brand"></span>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    
+                    <ul class="navbar-nav mr-auto">
+                        
+                        <li class="nav-item"><a href="https://sneas.github.io/blog/" class="nav-link">Home</a></li>
+                        
+                        <li class="nav-item"><a href="https://sneas.github.io/blog/about/" class="nav-link">About</a></li>
+                        
+                    </ul>
+                    
+
+                    
+                    <ul class="nav navbar-nav navbar-right">
+                        
+                        <li class="nav-item"><a href="https://github.com/sneas/" class="nav-link"><i class="fa fa-github"></i></a></li>
+                        
+                    </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+
+
+<main class="container">
+
+    <div class="item">
+        
+        
+
+        <h1>Deploy dist folder to GitHub Pages with CircleCI</h1>
+        <h6 class="text-muted">
+            3 minutes read
+            | Oct 7
+        </h6>
+        
+        <a href="https://sneas.github.io/blog/tags/circle-ci" class="badge badge-light">circle-ci</a>
+        
+        <a href="https://sneas.github.io/blog/tags/github" class="badge badge-light">github</a>
+        
+        <a href="https://sneas.github.io/blog/tags/ci" class="badge badge-light">ci</a>
+        
+        <a href="https://sneas.github.io/blog/tags/gh-pages" class="badge badge-light">gh-pages</a>
+        
+
+    </div>
+
+
+    <br> <div class="text-justify">
+
+<p>I would like to share how to automatically publish generated (<code>dist</code>) folder to GitHub
+pages with the help of CircleCI. This is <strong>not</strong> a <code>git subtree</code>-based solution because keeping
+automatically generated content in Git repo is&hellip; meh.</p>
+
+<p>Our pre-requisites are:</p>
+
+<ul>
+<li><code>dist</code> folder is automatically generated by a script on CI</li>
+<li><code>dist</code> folder is excluded from Git repo by <code>.gitignore</code></li>
+<li><code>gh-pages</code> gets auto refreshed with the latest content from <code>dist</code> folder on each commit</li>
+</ul>
+
+<p>Current blog is successfully working with the same principles. You can check the CI configuration
+out
+<a href="https://github.com/sneas/blog/tree/master/.circleci">here<i class="fa fa-github pl-1"></i></a>.</p>
+
+<h3 id="bash-script-file">Bash script file</h3>
+
+<p>First of all we are going to create bash script and save it in <code>.circleci/push-gh-pages.sh</code>.</p>
+
+<pre><code class="language-bash">#!/bin/sh
+
+[ ! -z &quot;$GH_NAME&quot; ] &amp;&amp; git config user.name &quot;$GH_NAME&quot;
+[ ! -z &quot;$GH_EMAIL&quot; ] &amp;&amp; git config user.email &quot;$GH_EMAIL&quot;
+
+MAIN_BRANCH=$(git symbolic-ref --short HEAD)
+DIST=&quot;${1:-dist}&quot;;
+
+git stash
+git branch --delete --force gh-pages
+git checkout --orphan gh-pages
+git add -f $DIST
+git commit -m &quot;Rebuild GitHub pages [ci skip]&quot;
+git filter-branch -f --prune-empty --subdirectory-filter $DIST &amp;&amp; git push -f origin gh-pages
+git checkout $MAIN_BRANCH
+git stash apply || :
+</code></pre>
+
+<p>Don&rsquo;t forget to give the script necessary permissions.</p>
+
+<pre><code class="language-bash">$ chmod +x .circleci/push-gh-pages.sh
+</code></pre>
+
+<h3 id="circleci-config-file">CircleCI config file</h3>
+
+<p>It&rsquo;s time to create/update CI config file <code>.circleci/config.yml</code>.</p>
+
+<p>I commented <code># docker image</code> and <code># necessary steps to create dist folder</code> because images and steps
+could very from project to project. If you&rsquo;re wondering how it&rsquo;s done for this blog you can refer to
+<a href="https://github.com/sneas/blog/tree/master/.circleci/config.yml">this config <i class="fa fa-github pl-1"></i></a>.</p>
+
+<pre><code class="language-yaml">version: 2
+jobs:
+  build:
+    docker:
+      - image: # docker image
+    working_directory: ~/repo
+    branches:
+      only:
+        - master
+    steps:
+      - checkout
+      # necessary steps to create dist folder 
+      - run: sh .circleci/push-gh-pages.sh dist
+</code></pre>
+
+<p>Btw it&rsquo;s not necessary to have <code>dist</code> folder as a provide for <code>gh-pages</code>.
+You can provide any folder to <code>.circleci/push-gh-pages.sh</code>.
+Ex: <code>sh .circleci/push-gh-pages.sh docs</code>.
+You don&rsquo;t have to provide any folder name (ex <code>sh .circleci/push-gh-pages.sh</code>) and it will
+be default to <code>dist</code>.</p>
+
+<h3 id="set-up-project-in-circleci">Set up project in CircleCI</h3>
+
+<p>After registering with your GitHub account you can click <code>Add Projects</code> button in the navigation
+panel.</p>
+
+<p><img src="https://sneas.github.io/blog/images/circle-ci/add-projects-button.png" alt="Add Projects Button" width="70" /></p>
+
+<p>Find the needed project in the list and click <code>Set Up Project</code>.</p>
+
+<p>Set up necessary preferences and click <code>Start Building</code>.</p>
+
+<p>We&rsquo;re almost there.</p>
+
+<p>Now you should go to the project settings by clicking</p>
+
+<p><img src="https://sneas.github.io/blog/images/circle-ci/project-settings-button.png" alt="Project Settings Button" width="30" /></p>
+
+<p>Go to <code>Environment Variables</code> and set up <code>GH_NAME</code> and <code>GH_EMAIL</code> variables.
+These are name and email being used for committing to <code>gh-pages</code>.
+You can use your GitHub email and name suffixed with <code>(CI)</code>.</p>
+
+<p><img src="https://sneas.github.io/blog/images/circle-ci/environment_variables_name_and_email.png" alt="Environmane Variables" width="300" /></p>
+
+<p>Now you can go to <code>Checkout SSH Keys</code> section of project settings and click <code>Create and add user key</code> button.</p>
+
+<p><img src="https://sneas.github.io/blog/images/circle-ci/create-and-add-user-key.png" alt="Create And Add User Key" width="300" /></p>
+
+<p>We&rsquo;re done. Now you can got to your project, click on the latest build and click <code>Rebuild</code> button.</p>
+</div>
+
+    
+    
+
+    
+
+    
+
+</main>
+
+        <footer class="footer text-center">
+
+            <div class="copyright text-muted">&copy; All rights reserved.</div>
+
+        </footer>
+       
+    </body>
+
+</html>
+
