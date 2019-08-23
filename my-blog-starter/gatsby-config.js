@@ -1,12 +1,12 @@
 module.exports = {
   pathPrefix: '/blog/my-blog-starter/public',
   siteMetadata: {
-    title: `Dev Blog`,
+    title: `Insights`,
     author: `Dmitry Snisarenko`,
-    description: `A bit of insight into software design.`,
+    description: `Some thoughts on software design.`,
     siteUrl: `https://sneas.github.io/blog`,
     social: {
-      twitter: `_sneas`,
+      twitter: `sneas`,
     },
   },
   plugins: [
