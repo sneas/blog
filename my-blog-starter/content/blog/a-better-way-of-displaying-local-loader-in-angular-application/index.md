@@ -1,15 +1,8 @@
 ---
 title: "A better way of displaying local loader in Angular application"
 date: 2018-12-12T16:16:23+01:00
-lastmod: 2018-12-22T16:16:06+01:00
-tags:
- - angular
- - rxjs
- - http-client
-categories:
- - Angular
- - RxJS
 ---
+
 ## Not so good
 
 ```typescript

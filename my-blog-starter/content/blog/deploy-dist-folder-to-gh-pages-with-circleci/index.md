@@ -1,15 +1,6 @@
 ---
 title: "Deploy dist folder to GitHub Pages with CircleCI"
 date: 2018-10-07T09:03:15+02:00
-lastmod: 2018-11-23T21:08:08+01:00
-tags:
- - circle-ci
- - github
- - ci
- - gh-pages
-categories:
- - Circle CI
- - GitHub
 ---
 
 I would like to share how to automatically publish generated (`dist`) folder to GitHub
@@ -90,7 +81,7 @@ be default to `dist`.
 After registering with your GitHub account you can click `Add Projects` button in the navigation
 panel.
 
-<img src="/images/circle-ci/add-projects-button.png" alt="Add Projects Button" width="70" />
+![Add Projects Button](./add-projects-button.png)
 
 Find the needed project in the list and click `Set Up Project`.
 
@@ -100,16 +91,16 @@ We're almost there.
 
 Now you should go to the project settings by clicking
 
-<img src="/images/circle-ci/project-settings-button.png" alt="Project Settings Button" width="30" />
+![Project Settings Button](./project-settings-button.png)
 
 Go to `Environment Variables` and set up `GH_NAME` and `GH_EMAIL` variables.
 These are name and email being used for committing to `gh-pages`.
 You can use your GitHub email and name suffixed with `(CI)`.
 
-<img src="/images/circle-ci/environment_variables_name_and_email.png" alt="Environmane Variables" width="300" />
+![Environmane Variables](./environment_variables_name_and_email.png)
 
 Now you can go to `Checkout SSH Keys` section of project settings and click `Create and add user key` button.
 
-<img src="/images/circle-ci/create-and-add-user-key.png" alt="Create And Add User Key" width="300" />
+![Create And Add User Key](./create-and-add-user-key.png)
 
 We're done. Now you can got to your project, click on the latest build and click `Rebuild` button.
