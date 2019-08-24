@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Insights]]></title><description><![CDATA[Some thoughts on software design.]]></description><link>https://sneas.github.io/blog</link><generator>RSS for Node</generator><lastBuildDate>Sat, 24 Aug 2019 14:30:52 GMT</lastBuildDate><item><title><![CDATA[An alternative way of passing parameter into event handler in React]]></title><description><![CDATA[There are two popular ways of passing parameters into event handlers in React. Let have a look at them first. Currying Pros Clean and simple…]]></description><link>https://sneas.github.io/blog/react-event-handler-parameter/</link><guid isPermaLink="false">https://sneas.github.io/blog/react-event-handler-parameter/</guid><pubDate>Sat, 02 Mar 2019 12:07:35 GMT</pubDate><content:encoded>&lt;p&gt;There are two popular ways of passing parameters into event handlers in React. Let have a look at them first.&lt;/p&gt;
+&lt;h2&gt;Currying&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;List&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function-variable function&quot;&gt;handleClick&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// Do something with index&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token function&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;ul&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;props&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;items&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;itemText&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; index&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+          &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;li&lt;/span&gt;
+            &lt;span class=&quot;token attr-name&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;index&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+            &lt;span class=&quot;token attr-name&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;handleClick&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;index&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+          &lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;itemText&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;li&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;ul&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Pros&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Clean and simple syntax&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Cons&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The solution generates a new function for each list item which increases memory consumption&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Sub components&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; List &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;createReactClass&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;ul&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;props&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;items&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt;
+          &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;ListItem&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;item&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;id&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;item&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;onItemClick&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;props&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;onItemClick&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;ul&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; ListItem &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;createReactClass&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;li&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;_onClick&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+        ...
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;li&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;_onClick&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;props&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;onItemClick&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;props&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;item&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;id&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Pros&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Absence of bindings&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Cons&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;New class instance for every item which increases memory consumption&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Creates coupling between List and ListItem components:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;replacing &lt;code class=&quot;language-text&quot;&gt;&amp;lt;ul&amp;gt;&lt;/code&gt; with another tag requires inevitable &lt;code class=&quot;language-text&quot;&gt;ListItem&lt;/code&gt; refactoring which complicates &lt;code class=&quot;language-text&quot;&gt;ListItem&lt;/code&gt; reusage&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;ListItem&lt;/code&gt; become container-dependent which limits it’s reusage outside of &lt;code class=&quot;language-text&quot;&gt;List&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It’s time to discuss a perfomant alternative to above methods. Which is&lt;/p&gt;
+&lt;h2&gt;Parameter in tag’s attribute&lt;/h2&gt;
+&lt;p&gt;What if we pass parameter right into tag’s attribute while rendering. And extract that param in handler?&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;List&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function-variable function&quot;&gt;handleClick&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; index &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; e&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;target&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getAttribute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;data-index&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// Do something with index&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token function&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;ul&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;props&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;items&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;itemText&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; index&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+          &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;li&lt;/span&gt;
+            &lt;span class=&quot;token attr-name&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;index&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+            &lt;span class=&quot;token attr-name&quot;&gt;data-index&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;index&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+            &lt;span class=&quot;token attr-name&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;handleClick&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+          &lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; itemText &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;li&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;ul&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This seems reasonable. But the above solution has following limitations:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;target of event could be different if list item element contains children&lt;/li&gt;
+&lt;li&gt;the parameter is stored in attribute as a string&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It is possible to gracefully solve the first problem and limit the second one.
+Please welcome &lt;a href=&quot;https://github.com/sneas/react-event-param&quot;&gt;react-event-param&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The library provides an easy way to pass a callback param right into to a tag and
+get it back in a callback handler:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; React&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; Component &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;react&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; setEventParam&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; getEventParam &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;react-event-param&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;List&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function-variable function&quot;&gt;onItemClick&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token parameter&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; index &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getEventParam&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;e&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;target&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// Do something with index&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token function&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;ul&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;props&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;items&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;itemText&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; index&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+          &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;li
+            key&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;index&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setEventParam&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;index&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+            onClick&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;onItemClick&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+          &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; itemText &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+          &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;li&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;ul&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Pros&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;No extra bindings and class instances&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Cons&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Param gets serialized while rendering and deserialized in callback which brings certain limitations:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;no function or class instance could be passed into attribute and successfully retrieved in event handler&lt;/li&gt;
+&lt;li&gt;parameter looses it’s reference which is not a big deal for sacalar values, but could be misleading
+in case of objects and arrays&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[On class inheritance]]></title><description><![CDATA[GoF stated this over two decades ago.
+Some warmly accepted languages (Go, Rust) refused of inheritance at all.
+But it seems many developers…]]></description><link>https://sneas.github.io/blog/inheritance/</link><guid isPermaLink="false">https://sneas.github.io/blog/inheritance/</guid><pubDate>Thu, 03 Jan 2019 08:21:00 GMT</pubDate><content:encoded>&lt;blockquote class=&quot;blockquote text-right&quot;&gt;
+  &lt;p class=&quot;mb-0&quot;&gt;Favor object composition over class inheritance.&lt;/p&gt;
+  &lt;footer class=&quot;blockquote-footer&quot;&gt;Gang of Four in &lt;cite title=&quot;Design Patterns: Elements of Reusable Object-Oriented Software&quot;&gt;Design Patterns: Elements of Reusable Object-Oriented Software&lt;/cite&gt;&lt;/footer&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;http://wiki.c2.com/?GangOfFour&quot;&gt;GoF&lt;/a&gt; stated this over two decades ago.
+Some warmly accepted languages (Go, Rust) refused of inheritance at all.
+But it seems many developers haven’t gotten the problem and still do inheritance to share code between classes.
+The code looks advanced at the first glance.
+But evolves into a chimera in no time.&lt;/p&gt;
+&lt;p&gt;The intention of code’s design is to be future proof and flexible. Ready for unpredictable changes. And inheritance in combination with changing business
+requirements stand on the way of the perfect system based on our perfectly-crafted &lt;code class=&quot;language-text&quot;&gt;BaseSolver&lt;/code&gt; class.&lt;/p&gt;
+&lt;p&gt;Here is the diagram showing the beginning of disaster:&lt;/p&gt;
+&lt;figure class=&quot;figure&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/blog/my-blog-starter/public/static/d9c52649c9f4bdb301ed039d26b47be5/6095e/base-class.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 43.206951026856245%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAABMklEQVQoz31Sa6uCQBDd//+z/CIkhFEZpEZFqeW7tKKHJ85wR7xyuQPD7M7MOfPYNfiRruvEZlmGoihwu91wOBwwnU4xm82w2WxQVZVonucSH+JUzJiQABKS+Hw+C2kURXJWIdm/hHRq4HQ6SVeWZcG2bUwmE8zncziOgzAMpeDr9ULbthhjhVAd6uQ4BHqeh+VyifV6LXfa1WqFNE3xeDxwv99/EaoajISVr9erADkWgfSRhL66rkWfzyf+EsMAkyn7/V521zQNLpeLjPb5fCRGS+KyLKUQ95okicTIoSqEcRzLiK7ryr6CIOhJuQJ9fe3e930sFos+n3jNN7ywM34Lvuhut5NX5j7YFcfjmb5h7na7lfzj8Yj3+92r0W9CJZh3XTiFVUnIUanMU8tuiRnKFxkwr2ra1KVaAAAAAElFTkSuQmCC&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;The class diagram showing keeping common methods in Base class&quot; title=&quot;The class diagram showing keeping common methods in Base class&quot; src=&quot;/blog/my-blog-starter/public/static/d9c52649c9f4bdb301ed039d26b47be5/b9e4f/base-class.png&quot; srcset=&quot;/blog/my-blog-starter/public/static/d9c52649c9f4bdb301ed039d26b47be5/cf440/base-class.png 148w,
+/blog/my-blog-starter/public/static/d9c52649c9f4bdb301ed039d26b47be5/d2d38/base-class.png 295w,
+/blog/my-blog-starter/public/static/d9c52649c9f4bdb301ed039d26b47be5/b9e4f/base-class.png 590w,
+/blog/my-blog-starter/public/static/d9c52649c9f4bdb301ed039d26b47be5/f9b6a/base-class.png 885w,
+/blog/my-blog-starter/public/static/d9c52649c9f4bdb301ed039d26b47be5/2d849/base-class.png 1180w,
+/blog/my-blog-starter/public/static/d9c52649c9f4bdb301ed039d26b47be5/6095e/base-class.png 1266w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;figure-caption text-center&quot;&gt;Figure 1. Sharing common methods in base class.&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;It looks good and nice: 2 instances. Similar in essence. Different in implementation. Share some base class’ methods.&lt;/p&gt;
+&lt;p&gt;The other day business decides to add the 3rd instance. And it needs only half of our &lt;code class=&quot;language-text&quot;&gt;BaseSolver&lt;/code&gt;’s methods.
+“No problem” we say and create another &lt;code class=&quot;language-text&quot;&gt;VeryBaseSolver&lt;/code&gt; with only half of methods implemented:&lt;/p&gt;
+&lt;figure class=&quot;figure&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/blog/my-blog-starter/public/static/2895b261954acf198a77fc7cb05d3c80/08e2b/very-base-class.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+    &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 43.22943280531426%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAABD0lEQVQoz3VSCaqFMAzs/W8nKK4I7qK4r4iaxwQiVf4vhLaZZjJJqu77Jizscr6ui7quo7ZtyfM8siyL4jimcRxpmqbn/V9L/Qf2fU9ZllGe51QUBd/XdaVlWV4CvoKU7jjPk88InOeZ1ei+4zheBN/KXoTIjCCU6jgOlWVJ27YxMd7gjFZ8yWTJ+SEEkWmaZBgG98y2bS4XiUAEdUgIYt0EfxRKBoB1XVNVVTQMAw8Ed/h1FWJCsu/7SykrRGYJlp7JY0y2aRr2w3RC7EiMeGDwKSjyfZ9c1+VAGQiIMNkwDLn8JEl4SMCl12macr+DIOD3qEzhfwFAvxCAnsCQGVgURfx9cBcMhgSCyQAh4AcxUretE3eD5AAAAABJRU5ErkJggg==&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;The class diagram showing creating VeryBase class out of the necessity to borrow couple of methods from Base class&quot; title=&quot;The class diagram showing creating VeryBase class out of the necessity to borrow couple of methods from Base class&quot; src=&quot;/blog/my-blog-starter/public/static/2895b261954acf198a77fc7cb05d3c80/b9e4f/very-base-class.png&quot; srcset=&quot;/blog/my-blog-starter/public/static/2895b261954acf198a77fc7cb05d3c80/cf440/very-base-class.png 148w,
+/blog/my-blog-starter/public/static/2895b261954acf198a77fc7cb05d3c80/d2d38/very-base-class.png 295w,
+/blog/my-blog-starter/public/static/2895b261954acf198a77fc7cb05d3c80/b9e4f/very-base-class.png 590w,
+/blog/my-blog-starter/public/static/2895b261954acf198a77fc7cb05d3c80/f9b6a/very-base-class.png 885w,
+/blog/my-blog-starter/public/static/2895b261954acf198a77fc7cb05d3c80/2d849/very-base-class.png 1180w,
+/blog/my-blog-starter/public/static/2895b261954acf198a77fc7cb05d3c80/08e2b/very-base-class.png 1957w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; loading=&quot;lazy&quot;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;figure-caption text-center&quot;&gt;Figure 2. Establishing a new base class.&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;But something smells in this design. It doesn’t look that good anymore.
+Things get worse as soon as business needs a &lt;code class=&quot;language-text&quot;&gt;ConcreteSolver4&lt;/code&gt; with &lt;code class=&quot;language-text&quot;&gt;method1&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;method2&lt;/code&gt;.
+There are multiple ways of providing this but none of them are semantically correct.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[A better way of displaying local loader in Angular application]]></title><description><![CDATA[Not so good You’ve probably seen the above construct in your project. I’ve been
+doing the same either. This way doesn’t look correct to me…]]></description><link>https://sneas.github.io/blog/a-better-way-of-displaying-local-loader-in-angular-application/</link><guid isPermaLink="false">https://sneas.github.io/blog/a-better-way-of-displaying-local-loader-in-angular-application/</guid><pubDate>Wed, 12 Dec 2018 15:16:23 GMT</pubDate><content:encoded>&lt;h2&gt;Not so good&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token function&quot;&gt;displayLoader&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Loading...&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;productsService&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getAll&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;pipe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+        &lt;span class=&quot;token function&quot;&gt;finalize&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;hideLoader&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You’ve probably seen the above construct in your project. I’ve been
+doing the same either. This way doesn’t look correct to me. Indeed this way of displaying and hiding
+loaders produces so-called &lt;em&gt;temporal coupling&lt;/em&gt; by separating display/hide actions and welding hide together with
+service function making it impossible to call &lt;code class=&quot;language-text&quot;&gt;this.productsService.getAll()&lt;/code&gt; without preliminary calling &lt;code class=&quot;language-text&quot;&gt;displayLoader(&amp;#39;loading&amp;#39;)&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The problem turns obvious as soon as the necessity of reusing &lt;code class=&quot;language-text&quot;&gt;this.productsService.getAll()&lt;/code&gt; method in component
+emerges and we inevitably wrap the call into separate function:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getAllProducts&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;displayLoader&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Loading...&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;productsService&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getAll&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;pipe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+          &lt;span class=&quot;token function&quot;&gt;finalize&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;hideLoader&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;subscribe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;products&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;products &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; products&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;One more drawback of this method is inability of using it with
+&lt;code class=&quot;language-text&quot;&gt;async&lt;/code&gt; pipe and inevitably forcing developers to manage subscriptions manually.&lt;/p&gt;
+&lt;h2&gt;The better&lt;/h2&gt;
+&lt;p&gt;The better way would be to automatically display loader on every subscription.
+Unfortunately RxJS does not provide a ready-to-use operator for this.&lt;/p&gt;
+&lt;p&gt;That’s why we’re going to create our own &lt;code class=&quot;language-text&quot;&gt;doOnSubscribe&lt;/code&gt; pipe operator:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// do-on-subscribe.operator.ts&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; defer&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; Observable &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;rxjs&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;doOnSubscribe&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;onSubscribe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token parameter&quot;&gt;source&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Observable&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;defer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token function&quot;&gt;onSubscribe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; source&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;After &lt;code class=&quot;language-text&quot;&gt;doOnSubscribe&lt;/code&gt; operator is ready we can use it on HttpClient observables:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;allProducts$ &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;productsService&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getAll&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;pipe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+        &lt;span class=&quot;token function&quot;&gt;doOnSubscribe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;displayLoader&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Loading...&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token function&quot;&gt;finalize&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;hideLoader&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The above method guaranties loader would be properly displayed and hidden on every subscription.
+The newly created “pure” observable could be used with &lt;code class=&quot;language-text&quot;&gt;async&lt;/code&gt; pipe or in combination with other observables:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;*ngFor&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;let product of allProducts$ | async&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  {{ product.name }}
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[On unit testing]]></title><description><![CDATA[While unit testing may contribute to overall product’s quality and help preventing some refactoring mistakes most
+organisations suffer…]]></description><link>https://sneas.github.io/blog/unit-testing/</link><guid isPermaLink="false">https://sneas.github.io/blog/unit-testing/</guid><pubDate>Sat, 03 Nov 2018 08:06:08 GMT</pubDate><content:encoded>&lt;img alt=&quot;build passing&quot; src=&quot;/blog/my-blog-starter/public/af3359b6a330e8be6d21e0274c77bc30/build-passing.svg&quot;&gt;
+&lt;img alt=&quot;coverage 100%&quot; src=&quot;/blog/my-blog-starter/public/2f58c16b61ae3cda1d079bc577ebca66/coverage-100.svg&quot;&gt;
+&lt;img alt=&quot;the code is bug free i swear&quot; src=&quot;/blog/my-blog-starter/public/50f06769a8ed80ce21edd60238dd3ea3/the_code_is_bug_free-i_swear.svg&quot;&gt;
+&lt;p&gt;While unit testing &lt;em&gt;may&lt;/em&gt; contribute to overall product’s quality and help preventing some refactoring mistakes most
+organisations suffer because of unit testing by doing it incorrectly being biased by certain beliefs and
+misconceptions.&lt;/p&gt;
+&lt;h2&gt;Beliefs and misconceptions&lt;/h2&gt;
+&lt;p&gt;Let’s start with some beliefs and misconceptions. &lt;/p&gt;
+&lt;h3&gt;TDD is about unit testing&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;TDD&lt;/em&gt; is a design process intended to improve code’s quality and it’s about creating tests before writing code.
+Contrarily, &lt;em&gt;unit testing&lt;/em&gt; is a process of covering existing code with tests. And it doesn’t supply
+overall code’s quality but &lt;em&gt;may&lt;/em&gt; lead to further refactoring of existing code.&lt;/p&gt;
+&lt;p&gt;While TDD helps in creating decoupled, cohesive, modular code unit testing
+may contribute to code coupling and create problems for further refactoring.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://xebia.com/blog/tdd-not-unit-tests/&quot;&gt;This article&lt;/a&gt; explains why TDD is not about unit tests.&lt;/p&gt;
+&lt;h3&gt;Tests prevent bugs&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// plus.js&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;plus&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;a&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; b&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; a &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; b&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// plus.spec.js&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;should correctly add two numbers&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;plus&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toBe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The above code isn’t bug free but it’s tested.&lt;/p&gt;
+&lt;p&gt;The point is duplicating logic in different files doesn’t prove the code works correctly.&lt;/p&gt;
+&lt;p&gt;The next misconception derives from the current but it’s worth listing separately&lt;/p&gt;
+&lt;h3&gt;100% coverage make code absolutely bug free&lt;/h3&gt;
+&lt;p&gt;While previous example shows why code coverage can not guarantee code quality, &lt;strong&gt;100% coverage&lt;/strong&gt; misconception derives
+from another bias created by combination of facts:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;our code is not fully covered&lt;/em&gt; &lt;strong&gt;+&lt;/strong&gt; &lt;em&gt;we have bugs&lt;/em&gt; &lt;strong&gt;=&lt;/strong&gt; &lt;em&gt;covering our code will free us from bugs&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;It’s easy to dive into this conclusion being backed up the previous belief of &lt;em&gt;Tests prevent bugs&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;The disappointment in unit testing may arise as soon as organisation reaches the magical 100% in code coverage but
+still suffers of bugs.&lt;/p&gt;
+&lt;h3&gt;Tests protect from accidental code changes&lt;/h3&gt;
+&lt;p&gt;Consider the next scenario:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;developer changed the code on purpose and unintentionally made a mistake&lt;/li&gt;
+&lt;li&gt;unit tests &lt;em&gt;expectedly&lt;/em&gt; failed, because code has changed&lt;/li&gt;
+&lt;li&gt;developer &lt;em&gt;fixed&lt;/em&gt; the failing unit test&lt;/li&gt;
+&lt;li&gt;PR created&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;What is the chance the erroneous change to be approved by another developer during the code review? Errors defended by unit tests have better chance to be approved. Especially if approving person also has religious beliefs
+about unit testing.&lt;/p&gt;
+&lt;h2&gt;Typical mistakes&lt;/h2&gt;
+&lt;p&gt;The below mistakes indicate problems with code. While the best solution might be refactoring of existing code, the overall
+observation is: &lt;strong&gt;your project doesn’t need that kind of tests&lt;/strong&gt;.&lt;/p&gt;
+&lt;h4&gt;Expose code’s internal structure&lt;/h4&gt;
+&lt;p&gt;Symptoms:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;mock the response of internally-called function&lt;/li&gt;
+&lt;li&gt;it’s difficult to give the assertion proper name and most of the time one assertion test &lt;em&gt;everything&lt;/em&gt;
+&lt;code class=&quot;language-text&quot;&gt;it(&amp;#39;should work correctly&amp;#39;, () =&amp;gt; {})&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Test 3rd party libraries&lt;/h4&gt;
+&lt;p&gt;Symptoms:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;insuring 3rd party library works as expected&lt;/li&gt;
+&lt;li&gt;too many mocks, pre and post conditions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Most of the time it reveals by testing view and controller layer of the app.&lt;/p&gt;
+&lt;h4&gt;Testing for the sake of testing&lt;/h4&gt;
+&lt;p&gt;Symptom: test simple code.&lt;/p&gt;
+&lt;h4&gt;Conditional logic in unit tests&lt;/h4&gt;
+&lt;p&gt;Symptom: conditional logic in unit tests (&lt;code class=&quot;language-text&quot;&gt;if&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;switch&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;while&lt;/code&gt;, etc).&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Deploy dist folder to GitHub Pages with CircleCI]]></title><description><![CDATA[I would like to share how to automatically publish generated () folder to GitHub
+pages with the help of CircleCI. This is not a -based…]]></description><link>https://sneas.github.io/blog/deploy-dist-folder-to-gh-pages-with-circleci/</link><guid isPermaLink="false">https://sneas.github.io/blog/deploy-dist-folder-to-gh-pages-with-circleci/</guid><pubDate>Sun, 07 Oct 2018 07:03:15 GMT</pubDate><content:encoded>&lt;p&gt;I would like to share how to automatically publish generated (&lt;code class=&quot;language-text&quot;&gt;dist&lt;/code&gt;) folder to GitHub
+pages with the help of CircleCI. This is &lt;strong&gt;not&lt;/strong&gt; a &lt;code class=&quot;language-text&quot;&gt;git subtree&lt;/code&gt;-based solution because keeping
+automatically generated content in Git repo is… meh.&lt;/p&gt;
+&lt;p&gt;Our pre-requisites are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;dist&lt;/code&gt; folder is automatically generated by a script on CI&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;dist&lt;/code&gt; folder is excluded from Git repo by &lt;code class=&quot;language-text&quot;&gt;.gitignore&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;gh-pages&lt;/code&gt; gets auto refreshed with the latest content from &lt;code class=&quot;language-text&quot;&gt;dist&lt;/code&gt; folder on each commit&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Current blog is successfully working with the same principles. You can check the CI configuration
+out
+&lt;a href=&quot;https://github.com/sneas/blog/tree/master/.circleci&quot;&gt;here&lt;i class=&quot;fa fa-github pl-1&quot;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Bash script file&lt;/h3&gt;
+&lt;p&gt;First of all we are going to create bash script and save it in &lt;code class=&quot;language-text&quot;&gt;.circleci/push-gh-pages.sh&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token shebang important&quot;&gt;#!/bin/sh&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt; -z &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$GH_NAME&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; config user.name &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$GH_NAME&lt;/span&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt; -z &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$GH_EMAIL&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; config user.email &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$GH_EMAIL&lt;/span&gt;&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token assign-left variable&quot;&gt;MAIN_BRANCH&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; symbolic-ref --short HEAD&lt;span class=&quot;token variable&quot;&gt;)&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token assign-left variable&quot;&gt;DIST&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;${1&lt;span class=&quot;token operator&quot;&gt;:-&lt;/span&gt;dist}&lt;/span&gt;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; stash
+&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; branch --delete --force gh-pages
+&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; checkout --orphan gh-pages
+&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt; -f &lt;span class=&quot;token variable&quot;&gt;$DIST&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; commit -m &lt;span class=&quot;token string&quot;&gt;&quot;Rebuild GitHub pages [ci skip]&quot;&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; filter-branch -f --prune-empty --subdirectory-filter &lt;span class=&quot;token variable&quot;&gt;$DIST&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; push -f origin gh-pages
+&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; checkout &lt;span class=&quot;token variable&quot;&gt;$MAIN_BRANCH&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; stash apply &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;token builtin class-name&quot;&gt;:&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Don’t forget to give the script necessary permissions.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;chmod&lt;/span&gt; +x .circleci/push-gh-pages.sh&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;CircleCI config file&lt;/h3&gt;
+&lt;p&gt;It’s time to create/update CI config file &lt;code class=&quot;language-text&quot;&gt;.circleci/config.yml&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;I commented &lt;code class=&quot;language-text&quot;&gt;# docker image&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;# necessary steps to create dist folder&lt;/code&gt; because images and steps
+could very from project to project. If you’re wondering how it’s done for this blog you can refer to
+&lt;a href=&quot;https://github.com/sneas/blog/tree/master/.circleci/config.yml&quot;&gt;this config &lt;i class=&quot;fa fa-github pl-1&quot;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;token key atrule&quot;&gt;jobs&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;docker&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# docker image&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;working_directory&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; ~/repo
+    &lt;span class=&quot;token key atrule&quot;&gt;branches&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;only&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; master
+    &lt;span class=&quot;token key atrule&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; checkout
+      &lt;span class=&quot;token comment&quot;&gt;# necessary steps to create dist folder &lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; sh .circleci/push&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;gh&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;pages.sh dist&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Btw it’s not necessary to have &lt;code class=&quot;language-text&quot;&gt;dist&lt;/code&gt; folder as a provide for &lt;code class=&quot;language-text&quot;&gt;gh-pages&lt;/code&gt;.
+You can provide any folder to &lt;code class=&quot;language-text&quot;&gt;.circleci/push-gh-pages.sh&lt;/code&gt;.
+Ex: &lt;code class=&quot;language-text&quot;&gt;sh .circleci/push-gh-pages.sh docs&lt;/code&gt;.
+You don’t have to provide any folder name (ex &lt;code class=&quot;language-text&quot;&gt;sh .circleci/push-gh-pages.sh&lt;/code&gt;) and it will
+be default to &lt;code class=&quot;language-text&quot;&gt;dist&lt;/code&gt;.&lt;/p&gt;
+&lt;h3&gt;Set up project in CircleCI&lt;/h3&gt;
+&lt;p&gt;After registering with your GitHub account you can click &lt;code class=&quot;language-text&quot;&gt;Add Projects&lt;/code&gt; button in the navigation
+panel.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 140px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/blog/my-blog-starter/public/static/d49f7506b33998c49aa67152dc482ee9/1d1f1/add-projects-button.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 118.57142857142857%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAYCAYAAAD6S912AAAACXBIWXMAABYlAAAWJQFJUiTwAAACFUlEQVQ4y61Vy6t5YRQ9f56Jx/Um5JH3u7xJFAaijCRFSRkYkTIwMDGgGCkDA3+GgdG67V3ndOh37+/QVbt9fI+117fXOt8RTCYT/jKE3yaNRuPbc4KSDQaDQQpx/C3AVzCr1Qq73Q6bzSaN/QQq/ARmNpuhUqnQ6/Vwu91wOp1wuVxwPB7hcrmg1+vfY2ixWNBqtbBYLEC/+XyO8/mM+/2OQCAAnU7HRRUD0uLJZILlcontdotYLMYFrtcrQqEQA77FkACHwyFWqxUzXK/XfPTH4wG/3/8Zw+l0ik6ng8PhgN1uh/1+j81mA4fDIQmj2DbEYDQaYTabYTAY8DMJpNVqP1NZzD6fTwqPx8NifexDymSPr68vznKrfAxIYNRPepbH20cmNk6nE/l8Hul0mnOlUkEmk3kCVcSQGFHzCYS82Gg00Gw2WfFaraZMZXlF8YjkN6/Xi1wuh3A4jFQqhUgkwmCvHhT3C3L6ogCiCBqNhu1DbNVqNf+noHkaF7O8p4L8VolGo/yKJZNJZkfZ7XbzLUPsaI7WJBIJZLNZxONxXkNWkhjK6bbbbXS7XTZyv99nEQqFAm8cj8col8vcw2AwyH0lgcjs8tvnCZCqkrIEQoKUSiUUi0VUq1XU63UGIFAqQGypv3Rh0CkkwNce0tFFE4viiEXpohVFk6ssfxWF35z/auBXY/9rjfC/j5HSeAL8y/gGA0L61adVzgYAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Add Projects Button&quot;
+        title=&quot;Add Projects Button&quot;
+        src=&quot;/blog/my-blog-starter/public/static/d49f7506b33998c49aa67152dc482ee9/1d1f1/add-projects-button.png&quot;
+        srcset=&quot;/blog/my-blog-starter/public/static/d49f7506b33998c49aa67152dc482ee9/1d1f1/add-projects-button.png 140w&quot;
+        sizes=&quot;(max-width: 140px) 100vw, 140px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Find the needed project in the list and click &lt;code class=&quot;language-text&quot;&gt;Set Up Project&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Set up necessary preferences and click &lt;code class=&quot;language-text&quot;&gt;Start Building&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;We’re almost there.&lt;/p&gt;
+&lt;p&gt;Now you should go to the project settings by clicking&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 68px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/blog/my-blog-starter/public/static/ee522caddaaaf2d2030dff5dd6aac046/08bde/project-settings-button.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 102.94117647058825%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAABYlAAAWJQFJUiTwAAABeklEQVQ4y62Vu46CUBCGeQwridpaQGOlHbWJvIIvYtToC/gUFiQWPAaNsRJiMGoU7xcuofo3M8lZyUZ3F4RkOJw5w8cM83OQgiCA7/ugMQzDzCY4Ep3I8Xg8cLlccL1eUxvdR0AyiWDn8xnz+RyO42Qy27Z5vN/vkKIowmKxwGazwe1246elNQK5rov1ev0Eep7HmZ5Op5d2PB7frhGUYKvV6gnc7Xa8IIKScPJT9klf8preI8HeAkXw4XDgzCj75XKJ/X7/7UvG/QkUwaQAOobDIRRFwXg85jm9s1RAEdjtdhnWaDRQKBTQarXQ7/cxGo1YaiLTX4FUUhzHmEwmKBaLKJfL0DSN4QSWZRnVahXT6ZQrIOi/Mtxut2i321yqZVlcqmmaqFQq6PV6DEnVFAFUVRWz2YyBhmGkB/4suVQqodlsotPpoFar8TxTycmm1Ot1boqu6+mb8ko2g8EgH9kIEdMaCZvmHwn7o08v980ht+0r9w0271/AF93u3SH4+pBkAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Project Settings Button&quot;
+        title=&quot;Project Settings Button&quot;
+        src=&quot;/blog/my-blog-starter/public/static/ee522caddaaaf2d2030dff5dd6aac046/08bde/project-settings-button.png&quot;
+        srcset=&quot;/blog/my-blog-starter/public/static/ee522caddaaaf2d2030dff5dd6aac046/08bde/project-settings-button.png 68w&quot;
+        sizes=&quot;(max-width: 68px) 100vw, 68px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Go to &lt;code class=&quot;language-text&quot;&gt;Environment Variables&lt;/code&gt; and set up &lt;code class=&quot;language-text&quot;&gt;GH_NAME&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;GH_EMAIL&lt;/code&gt; variables.
+These are name and email being used for committing to &lt;code class=&quot;language-text&quot;&gt;gh-pages&lt;/code&gt;.
+You can use your GitHub email and name suffixed with &lt;code class=&quot;language-text&quot;&gt;(CI)&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/blog/my-blog-starter/public/static/ffc006dc5ecb63349efb72070d2df2cd/ad34c/environment_variables_name_and_email.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 83.66197183098592%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAABYlAAAWJQFJUiTwAAACf0lEQVQ4y41TyY7TUBD0f3FjOYAEBw4ICcGV3+CCEFd+AQnQsGhYDtyR4IKEkpBMFrJvThwv8Z7YTtH1Ms/ySEiMpcrruPt1V3e1jSzLcNknLw7wkhybKIcdC6Kj7Yid7AsURQ5jt9vBsiy4rgvHcRS0vdlslG+xNOHZawycPe6dhnj0JcSDTyEefg7x+GuE6298vPiZqqJGmqbodDolut0u6vU6+v0+xuMxGo0Gmq0znP2uo22GuPk2xA1JcPWVj2uvfdw6CXD3Q4CTs52kOxwT9no9TKdTtNtttFotlbhWq2E4HF5oeegdVLLb7wLcEdz/GODKSx/v2zvlz3JJmOc5iP1+D7bPAtqOokjmUoi/kPACVlTg+Y8YT7/HeCag/eRbjF9mVs7Y4OXLPIfD/2MosMGf1WoF27ax3W7VqYUhKAr9vu8r38Z2jrGeB9dx4bmeEm+9XkvRc4YUguDMeHKWFGQymaiZEvRRKBU3m2O8sjCQk5jN51iZ5jEhGc4XC8zl5WK5VDaTmau1qroWdqYED0cjxdSUmE2cYhQksFK5G++Qn7dcKIaSsOuGGGwjhZ4bYBElGG5DjP0If+QcyNnzQlhx+s+BkplGqTKZZnJqh76Ui8r0qTixq5cJ+orKe4OXOHguMEWoVuTDGXMvR9JylZFqURI1m001V45MJeTLOI5LhTk37uBx/47MwzBUO+mJstxT7SNo63jCYFYm45dCMahmkiQlSwazOgWZzWYIgqBkp1tmMdoqIX/IQO/SQlSuBrBlMqOPI9FMNJiQBC4w5NIuZR3IkgxZQM+KDOkje7LUbWrwP0dWisKZaKWqbTARQYY6CU/9vgr97RN/AfaKCCXHNKS9AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Environmane Variables&quot;
+        title=&quot;Environmane Variables&quot;
+        src=&quot;/blog/my-blog-starter/public/static/ffc006dc5ecb63349efb72070d2df2cd/b9e4f/environment_variables_name_and_email.png&quot;
+        srcset=&quot;/blog/my-blog-starter/public/static/ffc006dc5ecb63349efb72070d2df2cd/cf440/environment_variables_name_and_email.png 148w,
+/blog/my-blog-starter/public/static/ffc006dc5ecb63349efb72070d2df2cd/d2d38/environment_variables_name_and_email.png 295w,
+/blog/my-blog-starter/public/static/ffc006dc5ecb63349efb72070d2df2cd/b9e4f/environment_variables_name_and_email.png 590w,
+/blog/my-blog-starter/public/static/ffc006dc5ecb63349efb72070d2df2cd/ad34c/environment_variables_name_and_email.png 710w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Now you can go to &lt;code class=&quot;language-text&quot;&gt;Checkout SSH Keys&lt;/code&gt; section of project settings and click &lt;code class=&quot;language-text&quot;&gt;Create and add user key&lt;/code&gt; button.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/blog/my-blog-starter/public/static/62380f50b76bf571292ccdbc3a6abcb0/be18a/create-and-add-user-key.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 62.2356495468278%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAABVklEQVQoz62TW4+CQAyF/f+/TQQUAe/c0RC8i7x183VT4sbNxod9ONDpnDntmcLofD7LarVS7HY72Ww2kiSJXK9XeTwecr/fPwLcy+UiIx5hGEocxxJFkSyXS11D6vtens/nn4ADuq77Fjwej7Lf76UoiqG7LMskz3NZr9eSpqnmidkzF9vtVnnWwOFwkNvtJqPT6aR2SU6nU/F9X+bzuQRBMHTM/mKxUBcIzmYz5ZKDRyG60w4RhAg4PB6PlUwBBDlsd8ya7ijoeZ4Kcqaua7WvggzFLFAdIewBchwiNlFicmaXmEI0xiAHy1idTCZKMOvYIaYjYINjjzunK5vwMGVUEWU4vOm4bdthbblXjuV+/WwQBE3T6GRBWZbaATHWiMlVVaVvcvBfRd865GK5aMdx1BJgzVBc19UY+1wDg6OYCb5ZJmnvTwGf787+ph9/CpX+A2h9AbgPd02RDzyEAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Create And Add User Key&quot;
+        title=&quot;Create And Add User Key&quot;
+        src=&quot;/blog/my-blog-starter/public/static/62380f50b76bf571292ccdbc3a6abcb0/b9e4f/create-and-add-user-key.png&quot;
+        srcset=&quot;/blog/my-blog-starter/public/static/62380f50b76bf571292ccdbc3a6abcb0/cf440/create-and-add-user-key.png 148w,
+/blog/my-blog-starter/public/static/62380f50b76bf571292ccdbc3a6abcb0/d2d38/create-and-add-user-key.png 295w,
+/blog/my-blog-starter/public/static/62380f50b76bf571292ccdbc3a6abcb0/b9e4f/create-and-add-user-key.png 590w,
+/blog/my-blog-starter/public/static/62380f50b76bf571292ccdbc3a6abcb0/be18a/create-and-add-user-key.png 662w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;We’re done. Now you can got to your project, click on the latest build and click &lt;code class=&quot;language-text&quot;&gt;Rebuild&lt;/code&gt; button.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[OMG! The blog is working]]></title><description><![CDATA[And not only working. It’s fully automated with the help of CircleCI. How it works? The blog files are stored on GitHub. It’s markdown…]]></description><link>https://sneas.github.io/blog/its-working/</link><guid isPermaLink="false">https://sneas.github.io/blog/its-working/</guid><pubDate>Sat, 06 Oct 2018 11:20:56 GMT</pubDate><content:encoded>&lt;p&gt;And not only working. It’s fully automated with the help of &lt;a href=&quot;https://circleci.com&quot;&gt;CircleCI&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;How it works?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The blog files are &lt;a href=&quot;https://github.com/sneas/blog/tree/master/content&quot;&gt;stored on GitHub&lt;/a&gt;. It’s markdown.&lt;/li&gt;
+&lt;li&gt;Every time I do a commit in order to create or update a page, the blog gets regenerated and published on GitHub Pages.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I spent some time configuring CircleCI to automatically publish blog’s content. I’m going to explain how to do it in the &lt;a href=&quot;/blog/my-blog-starter/public/deploy-dist-folder-to-gh-pages-with-circleci&quot;&gt;next post&lt;/a&gt;.   &lt;/p&gt;</content:encoded></item></channel></rss>
