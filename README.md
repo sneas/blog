@@ -1,6 +1,6 @@
 # Blog
 
-Fully automated blog powered by Git, Hugo CMS, CircleCI, and GitHub Pages.
+Fully automated blog powered by Git, Gatsby, CircleCI, and GitHub Pages.
 
 ## Why this blog is awesome (architectural-wise)
 
