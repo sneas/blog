@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Insights]]></title><description><![CDATA[Some thoughts on software design.]]></description><link>https://sneas.github.io/blog</link><generator>RSS for Node</generator><lastBuildDate>Sat, 24 Aug 2019 14:30:52 GMT</lastBuildDate><item><title><![CDATA[An alternative way of passing parameter into event handler in React]]></title><description><![CDATA[There are two popular ways of passing parameters into event handlers in React. Let have a look at them first. Currying Pros Clean and simple…]]></description><link>https://sneas.github.io/blog/react-event-handler-parameter/</link><guid isPermaLink="false">https://sneas.github.io/blog/react-event-handler-parameter/</guid><pubDate>Sat, 02 Mar 2019 12:07:35 GMT</pubDate><content:encoded>&lt;p&gt;There are two popular ways of passing parameters into event handlers in React. Let have a look at them first.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Insights]]></title><description><![CDATA[Some thoughts on software design.]]></description><link>https://sneas.github.io/blog</link><generator>RSS for Node</generator><lastBuildDate>Sat, 24 Aug 2019 14:35:48 GMT</lastBuildDate><item><title><![CDATA[An alternative way of passing parameter into event handler in React]]></title><description><![CDATA[There are two popular ways of passing parameters into event handlers in React. Let have a look at them first. Currying Pros Clean and simple…]]></description><link>https://sneas.github.io/blog/react-event-handler-parameter/</link><guid isPermaLink="false">https://sneas.github.io/blog/react-event-handler-parameter/</guid><pubDate>Sat, 02 Mar 2019 12:07:35 GMT</pubDate><content:encoded>&lt;p&gt;There are two popular ways of passing parameters into event handlers in React. Let have a look at them first.&lt;/p&gt;
 &lt;h2&gt;Currying&lt;/h2&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;List&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;token function-variable function&quot;&gt;handleClick&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
@@ -157,14 +157,14 @@ requirements stand on the way of the perfect system based on our perfectly-craft
 &lt;p&gt;Here is the diagram showing the beginning of disaster:&lt;/p&gt;
 &lt;figure class=&quot;figure&quot;&gt;
     &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;&gt;
-      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/blog/my-blog-starter/public/static/d9c52649c9f4bdb301ed039d26b47be5/6095e/base-class.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/blog/static/d9c52649c9f4bdb301ed039d26b47be5/6095e/base-class.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
     &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 43.206951026856245%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAABMklEQVQoz31Sa6uCQBDd//+z/CIkhFEZpEZFqeW7tKKHJ85wR7xyuQPD7M7MOfPYNfiRruvEZlmGoihwu91wOBwwnU4xm82w2WxQVZVonucSH+JUzJiQABKS+Hw+C2kURXJWIdm/hHRq4HQ6SVeWZcG2bUwmE8zncziOgzAMpeDr9ULbthhjhVAd6uQ4BHqeh+VyifV6LXfa1WqFNE3xeDxwv99/EaoajISVr9erADkWgfSRhL66rkWfzyf+EsMAkyn7/V521zQNLpeLjPb5fCRGS+KyLKUQ95okicTIoSqEcRzLiK7ryr6CIOhJuQJ9fe3e930sFos+n3jNN7ywM34Lvuhut5NX5j7YFcfjmb5h7na7lfzj8Yj3+92r0W9CJZh3XTiFVUnIUanMU8tuiRnKFxkwr2ra1KVaAAAAAElFTkSuQmCC&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;The class diagram showing keeping common methods in Base class&quot; title=&quot;The class diagram showing keeping common methods in Base class&quot; src=&quot;/blog/my-blog-starter/public/static/d9c52649c9f4bdb301ed039d26b47be5/b9e4f/base-class.png&quot; srcset=&quot;/blog/my-blog-starter/public/static/d9c52649c9f4bdb301ed039d26b47be5/cf440/base-class.png 148w,
-/blog/my-blog-starter/public/static/d9c52649c9f4bdb301ed039d26b47be5/d2d38/base-class.png 295w,
-/blog/my-blog-starter/public/static/d9c52649c9f4bdb301ed039d26b47be5/b9e4f/base-class.png 590w,
-/blog/my-blog-starter/public/static/d9c52649c9f4bdb301ed039d26b47be5/f9b6a/base-class.png 885w,
-/blog/my-blog-starter/public/static/d9c52649c9f4bdb301ed039d26b47be5/2d849/base-class.png 1180w,
-/blog/my-blog-starter/public/static/d9c52649c9f4bdb301ed039d26b47be5/6095e/base-class.png 1266w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; loading=&quot;lazy&quot;&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;The class diagram showing keeping common methods in Base class&quot; title=&quot;The class diagram showing keeping common methods in Base class&quot; src=&quot;/blog/static/d9c52649c9f4bdb301ed039d26b47be5/b9e4f/base-class.png&quot; srcset=&quot;/blog/static/d9c52649c9f4bdb301ed039d26b47be5/cf440/base-class.png 148w,
+/blog/static/d9c52649c9f4bdb301ed039d26b47be5/d2d38/base-class.png 295w,
+/blog/static/d9c52649c9f4bdb301ed039d26b47be5/b9e4f/base-class.png 590w,
+/blog/static/d9c52649c9f4bdb301ed039d26b47be5/f9b6a/base-class.png 885w,
+/blog/static/d9c52649c9f4bdb301ed039d26b47be5/2d849/base-class.png 1180w,
+/blog/static/d9c52649c9f4bdb301ed039d26b47be5/6095e/base-class.png 1266w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; loading=&quot;lazy&quot;&gt;
   &lt;/a&gt;
     &lt;/span&gt;
     &lt;figcaption class=&quot;figure-caption text-center&quot;&gt;Figure 1. Sharing common methods in base class.&lt;/figcaption&gt;
@@ -174,14 +174,14 @@ requirements stand on the way of the perfect system based on our perfectly-craft
 “No problem” we say and create another &lt;code class=&quot;language-text&quot;&gt;VeryBaseSolver&lt;/code&gt; with only half of methods implemented:&lt;/p&gt;
 &lt;figure class=&quot;figure&quot;&gt;
     &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;&gt;
-      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/blog/my-blog-starter/public/static/2895b261954acf198a77fc7cb05d3c80/08e2b/very-base-class.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
+      &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/blog/static/2895b261954acf198a77fc7cb05d3c80/08e2b/very-base-class.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;
     &lt;span class=&quot;gatsby-resp-image-background-image&quot; style=&quot;padding-bottom: 43.22943280531426%; position: relative; bottom: 0; left: 0; background-image: url(&amp;apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAABD0lEQVQoz3VSCaqFMAzs/W8nKK4I7qK4r4iaxwQiVf4vhLaZZjJJqu77Jizscr6ui7quo7ZtyfM8siyL4jimcRxpmqbn/V9L/Qf2fU9ZllGe51QUBd/XdaVlWV4CvoKU7jjPk88InOeZ1ei+4zheBN/KXoTIjCCU6jgOlWVJ27YxMd7gjFZ8yWTJ+SEEkWmaZBgG98y2bS4XiUAEdUgIYt0EfxRKBoB1XVNVVTQMAw8Ed/h1FWJCsu/7SykrRGYJlp7JY0y2aRr2w3RC7EiMeGDwKSjyfZ9c1+VAGQiIMNkwDLn8JEl4SMCl12macr+DIOD3qEzhfwFAvxCAnsCQGVgURfx9cBcMhgSCyQAh4AcxUretE3eD5AAAAABJRU5ErkJggg==&amp;apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;The class diagram showing creating VeryBase class out of the necessity to borrow couple of methods from Base class&quot; title=&quot;The class diagram showing creating VeryBase class out of the necessity to borrow couple of methods from Base class&quot; src=&quot;/blog/my-blog-starter/public/static/2895b261954acf198a77fc7cb05d3c80/b9e4f/very-base-class.png&quot; srcset=&quot;/blog/my-blog-starter/public/static/2895b261954acf198a77fc7cb05d3c80/cf440/very-base-class.png 148w,
-/blog/my-blog-starter/public/static/2895b261954acf198a77fc7cb05d3c80/d2d38/very-base-class.png 295w,
-/blog/my-blog-starter/public/static/2895b261954acf198a77fc7cb05d3c80/b9e4f/very-base-class.png 590w,
-/blog/my-blog-starter/public/static/2895b261954acf198a77fc7cb05d3c80/f9b6a/very-base-class.png 885w,
-/blog/my-blog-starter/public/static/2895b261954acf198a77fc7cb05d3c80/2d849/very-base-class.png 1180w,
-/blog/my-blog-starter/public/static/2895b261954acf198a77fc7cb05d3c80/08e2b/very-base-class.png 1957w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; loading=&quot;lazy&quot;&gt;
+  &lt;img class=&quot;gatsby-resp-image-image&quot; alt=&quot;The class diagram showing creating VeryBase class out of the necessity to borrow couple of methods from Base class&quot; title=&quot;The class diagram showing creating VeryBase class out of the necessity to borrow couple of methods from Base class&quot; src=&quot;/blog/static/2895b261954acf198a77fc7cb05d3c80/b9e4f/very-base-class.png&quot; srcset=&quot;/blog/static/2895b261954acf198a77fc7cb05d3c80/cf440/very-base-class.png 148w,
+/blog/static/2895b261954acf198a77fc7cb05d3c80/d2d38/very-base-class.png 295w,
+/blog/static/2895b261954acf198a77fc7cb05d3c80/b9e4f/very-base-class.png 590w,
+/blog/static/2895b261954acf198a77fc7cb05d3c80/f9b6a/very-base-class.png 885w,
+/blog/static/2895b261954acf198a77fc7cb05d3c80/2d849/very-base-class.png 1180w,
+/blog/static/2895b261954acf198a77fc7cb05d3c80/08e2b/very-base-class.png 1957w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; loading=&quot;lazy&quot;&gt;
   &lt;/a&gt;
     &lt;/span&gt;
     &lt;figcaption class=&quot;figure-caption text-center&quot;&gt;Figure 2. Establishing a new base class.&lt;/figcaption&gt;
@@ -238,9 +238,9 @@ The newly created “pure” observable could be used with &lt;code class=&quot;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;*ngFor&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;let product of allProducts$ | async&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
   {{ product.name }}
 &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[On unit testing]]></title><description><![CDATA[While unit testing may contribute to overall product’s quality and help preventing some refactoring mistakes most
-organisations suffer…]]></description><link>https://sneas.github.io/blog/unit-testing/</link><guid isPermaLink="false">https://sneas.github.io/blog/unit-testing/</guid><pubDate>Sat, 03 Nov 2018 08:06:08 GMT</pubDate><content:encoded>&lt;img alt=&quot;build passing&quot; src=&quot;/blog/my-blog-starter/public/af3359b6a330e8be6d21e0274c77bc30/build-passing.svg&quot;&gt;
-&lt;img alt=&quot;coverage 100%&quot; src=&quot;/blog/my-blog-starter/public/2f58c16b61ae3cda1d079bc577ebca66/coverage-100.svg&quot;&gt;
-&lt;img alt=&quot;the code is bug free i swear&quot; src=&quot;/blog/my-blog-starter/public/50f06769a8ed80ce21edd60238dd3ea3/the_code_is_bug_free-i_swear.svg&quot;&gt;
+organisations suffer…]]></description><link>https://sneas.github.io/blog/unit-testing/</link><guid isPermaLink="false">https://sneas.github.io/blog/unit-testing/</guid><pubDate>Sat, 03 Nov 2018 08:06:08 GMT</pubDate><content:encoded>&lt;img alt=&quot;build passing&quot; src=&quot;/blog/af3359b6a330e8be6d21e0274c77bc30/build-passing.svg&quot;&gt;
+&lt;img alt=&quot;coverage 100%&quot; src=&quot;/blog/2f58c16b61ae3cda1d079bc577ebca66/coverage-100.svg&quot;&gt;
+&lt;img alt=&quot;the code is bug free i swear&quot; src=&quot;/blog/50f06769a8ed80ce21edd60238dd3ea3/the_code_is_bug_free-i_swear.svg&quot;&gt;
 &lt;p&gt;While unit testing &lt;em&gt;may&lt;/em&gt; contribute to overall product’s quality and help preventing some refactoring mistakes most
 organisations suffer because of unit testing by doing it incorrectly being biased by certain beliefs and
 misconceptions.&lt;/p&gt;
@@ -368,7 +368,7 @@ panel.&lt;/p&gt;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/my-blog-starter/public/static/d49f7506b33998c49aa67152dc482ee9/1d1f1/add-projects-button.png&quot;
+    href=&quot;/blog/static/d49f7506b33998c49aa67152dc482ee9/1d1f1/add-projects-button.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -381,8 +381,8 @@ panel.&lt;/p&gt;
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;Add Projects Button&quot;
         title=&quot;Add Projects Button&quot;
-        src=&quot;/blog/my-blog-starter/public/static/d49f7506b33998c49aa67152dc482ee9/1d1f1/add-projects-button.png&quot;
-        srcset=&quot;/blog/my-blog-starter/public/static/d49f7506b33998c49aa67152dc482ee9/1d1f1/add-projects-button.png 140w&quot;
+        src=&quot;/blog/static/d49f7506b33998c49aa67152dc482ee9/1d1f1/add-projects-button.png&quot;
+        srcset=&quot;/blog/static/d49f7506b33998c49aa67152dc482ee9/1d1f1/add-projects-button.png 140w&quot;
         sizes=&quot;(max-width: 140px) 100vw, 140px&quot;
         loading=&quot;lazy&quot;
       /&gt;
@@ -398,7 +398,7 @@ panel.&lt;/p&gt;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/my-blog-starter/public/static/ee522caddaaaf2d2030dff5dd6aac046/08bde/project-settings-button.png&quot;
+    href=&quot;/blog/static/ee522caddaaaf2d2030dff5dd6aac046/08bde/project-settings-button.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -411,8 +411,8 @@ panel.&lt;/p&gt;
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;Project Settings Button&quot;
         title=&quot;Project Settings Button&quot;
-        src=&quot;/blog/my-blog-starter/public/static/ee522caddaaaf2d2030dff5dd6aac046/08bde/project-settings-button.png&quot;
-        srcset=&quot;/blog/my-blog-starter/public/static/ee522caddaaaf2d2030dff5dd6aac046/08bde/project-settings-button.png 68w&quot;
+        src=&quot;/blog/static/ee522caddaaaf2d2030dff5dd6aac046/08bde/project-settings-button.png&quot;
+        srcset=&quot;/blog/static/ee522caddaaaf2d2030dff5dd6aac046/08bde/project-settings-button.png 68w&quot;
         sizes=&quot;(max-width: 68px) 100vw, 68px&quot;
         loading=&quot;lazy&quot;
       /&gt;
@@ -427,7 +427,7 @@ You can use your GitHub email and name suffixed with &lt;code class=&quot;langua
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/my-blog-starter/public/static/ffc006dc5ecb63349efb72070d2df2cd/ad34c/environment_variables_name_and_email.png&quot;
+    href=&quot;/blog/static/ffc006dc5ecb63349efb72070d2df2cd/ad34c/environment_variables_name_and_email.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -440,11 +440,11 @@ You can use your GitHub email and name suffixed with &lt;code class=&quot;langua
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;Environmane Variables&quot;
         title=&quot;Environmane Variables&quot;
-        src=&quot;/blog/my-blog-starter/public/static/ffc006dc5ecb63349efb72070d2df2cd/b9e4f/environment_variables_name_and_email.png&quot;
-        srcset=&quot;/blog/my-blog-starter/public/static/ffc006dc5ecb63349efb72070d2df2cd/cf440/environment_variables_name_and_email.png 148w,
-/blog/my-blog-starter/public/static/ffc006dc5ecb63349efb72070d2df2cd/d2d38/environment_variables_name_and_email.png 295w,
-/blog/my-blog-starter/public/static/ffc006dc5ecb63349efb72070d2df2cd/b9e4f/environment_variables_name_and_email.png 590w,
-/blog/my-blog-starter/public/static/ffc006dc5ecb63349efb72070d2df2cd/ad34c/environment_variables_name_and_email.png 710w&quot;
+        src=&quot;/blog/static/ffc006dc5ecb63349efb72070d2df2cd/b9e4f/environment_variables_name_and_email.png&quot;
+        srcset=&quot;/blog/static/ffc006dc5ecb63349efb72070d2df2cd/cf440/environment_variables_name_and_email.png 148w,
+/blog/static/ffc006dc5ecb63349efb72070d2df2cd/d2d38/environment_variables_name_and_email.png 295w,
+/blog/static/ffc006dc5ecb63349efb72070d2df2cd/b9e4f/environment_variables_name_and_email.png 590w,
+/blog/static/ffc006dc5ecb63349efb72070d2df2cd/ad34c/environment_variables_name_and_email.png 710w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
         loading=&quot;lazy&quot;
       /&gt;
@@ -457,7 +457,7 @@ You can use your GitHub email and name suffixed with &lt;code class=&quot;langua
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/blog/my-blog-starter/public/static/62380f50b76bf571292ccdbc3a6abcb0/be18a/create-and-add-user-key.png&quot;
+    href=&quot;/blog/static/62380f50b76bf571292ccdbc3a6abcb0/be18a/create-and-add-user-key.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -470,11 +470,11 @@ You can use your GitHub email and name suffixed with &lt;code class=&quot;langua
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;Create And Add User Key&quot;
         title=&quot;Create And Add User Key&quot;
-        src=&quot;/blog/my-blog-starter/public/static/62380f50b76bf571292ccdbc3a6abcb0/b9e4f/create-and-add-user-key.png&quot;
-        srcset=&quot;/blog/my-blog-starter/public/static/62380f50b76bf571292ccdbc3a6abcb0/cf440/create-and-add-user-key.png 148w,
-/blog/my-blog-starter/public/static/62380f50b76bf571292ccdbc3a6abcb0/d2d38/create-and-add-user-key.png 295w,
-/blog/my-blog-starter/public/static/62380f50b76bf571292ccdbc3a6abcb0/b9e4f/create-and-add-user-key.png 590w,
-/blog/my-blog-starter/public/static/62380f50b76bf571292ccdbc3a6abcb0/be18a/create-and-add-user-key.png 662w&quot;
+        src=&quot;/blog/static/62380f50b76bf571292ccdbc3a6abcb0/b9e4f/create-and-add-user-key.png&quot;
+        srcset=&quot;/blog/static/62380f50b76bf571292ccdbc3a6abcb0/cf440/create-and-add-user-key.png 148w,
+/blog/static/62380f50b76bf571292ccdbc3a6abcb0/d2d38/create-and-add-user-key.png 295w,
+/blog/static/62380f50b76bf571292ccdbc3a6abcb0/b9e4f/create-and-add-user-key.png 590w,
+/blog/static/62380f50b76bf571292ccdbc3a6abcb0/be18a/create-and-add-user-key.png 662w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
         loading=&quot;lazy&quot;
       /&gt;
@@ -486,4 +486,4 @@ You can use your GitHub email and name suffixed with &lt;code class=&quot;langua
 &lt;li&gt;The blog files are &lt;a href=&quot;https://github.com/sneas/blog/tree/master/content&quot;&gt;stored on GitHub&lt;/a&gt;. It’s markdown.&lt;/li&gt;
 &lt;li&gt;Every time I do a commit in order to create or update a page, the blog gets regenerated and published on GitHub Pages.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;I spent some time configuring CircleCI to automatically publish blog’s content. I’m going to explain how to do it in the &lt;a href=&quot;/blog/my-blog-starter/public/deploy-dist-folder-to-gh-pages-with-circleci&quot;&gt;next post&lt;/a&gt;.   &lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;p&gt;I spent some time configuring CircleCI to automatically publish blog’s content. I’m going to explain how to do it in the &lt;a href=&quot;/blog/deploy-dist-folder-to-gh-pages-with-circleci&quot;&gt;next post&lt;/a&gt;.   &lt;/p&gt;</content:encoded></item></channel></rss>
