@@ -1,19 +1,13 @@
 ---
 title: "An alternative way of passing parameter into event handler in React"
 date: 2019-03-02T13:07:35+01:00
-lastmod: 2019-03-03T14:44:35+01:00
-tags:
- - react
- - dom-events
-categories:
- - React
 ---
 
 There are two popular ways of passing parameters into event handlers in React. Let have a look at them first.
 
 ## Currying
 
-```jsx harmony
+```jsx
 class List extends Component {
   handleClick = (index) => (e) => {
     // Do something with index
@@ -48,7 +42,7 @@ class List extends Component {
 
 ## Sub components
 
-```jsx harmony
+```jsx
 var List = createReactClass({
   render() {
     return (
@@ -92,7 +86,7 @@ It's time to discuss a perfomant alternative to above methods. Which is
 
 What if we pass parameter right into tag's attribute while rendering. And extract that param in handler?
 
-```jsx harmony
+```jsx
 class List extends Component {
   handleClick = (e) => {
     const index = e.target.getAttribute('data-index');
@@ -128,7 +122,7 @@ Please welcome [react-event-param](https://github.com/sneas/react-event-param).
 The library provides an easy way to pass a callback param right into to a tag and
 get it back in a callback handler:
 
-```jsx harmony
+```jsx
 import React, { Component } from "react";
 import { setEventParam, getEventParam } from "react-event-param";
 
