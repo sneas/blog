@@ -1,17 +1,13 @@
 ---
 title: "Unit testing mistakes, beliefs and misconceptions"
 date: 2018-11-03T09:06:08+01:00
-lastmod: 2018-12-16T12:41:08+01:00
-tags:
- - unit-testing
- - tdd
-categories:
- - Unit testing
- - TDD
 ---
-![build passing](/images/build-passing.svg)
-![coverage 100%](/images/coverage-100.svg)
-![the code is bug free i swear](/images/the_code_is_bug_free-i_swear.svg)
+
+<img alt="build passing" src="./build-passing.svg">
+<img alt="coverage 100%" src="./coverage-100.svg">
+<img alt="the code is bug free i swear" src="./the_code_is_bug_free-i_swear.svg">
+
+
 
 While unit testing *may* contribute to overall product's quality and help preventing some refactoring mistakes most
 organisations suffer because of unit testing by doing it incorrectly being biased by certain beliefs and
