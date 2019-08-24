@@ -1,0 +1,12 @@
+.figure .gatsby-resp-image-wrapper {
+    margin-bottom: .5rem;
+}
+
+.figure .figure-caption {
+    font-size: 90%;
+    color: #6c757d;
+}
+
+.text-center {
+    text-align: center;
+}
