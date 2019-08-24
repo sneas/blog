@@ -54,7 +54,7 @@ const Bio = () => {
         }}
       />
       <p>
-          Written by <strong>{author}</strong> who lives in Amsterdam, and spontaneously puts code on <a href={`http://github.com/${social.twitter}`}>GitHub</a>.
+          Made by <strong>{author}</strong> who lives in Amsterdam, and spontaneously puts code on <a href={`http://github.com/${social.twitter}`}>GitHub</a>.
       </p>
     </div>
   )
