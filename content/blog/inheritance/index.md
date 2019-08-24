@@ -1,5 +1,5 @@
 ---
-title: "A problem with class inheritance"
+title: On class inheritance
 date: 2019-01-03T09:21:00+01:00
 ---
 <blockquote class="blockquote text-right">
