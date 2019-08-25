@@ -1,5 +1,5 @@
 ---
-title: OMG! The blog is working
+title: Wow, it's working
 date: "2018-10-06T13:20:56+02:00"
 description: How nice to see it's working!
 ---
