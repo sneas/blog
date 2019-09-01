@@ -20,13 +20,13 @@ Let's start with some beliefs and misconceptions.
 ### TDD is about unit testing
 
 *TDD* is a design process intended to improve code's quality and it's about creating tests before writing code.
-Contrarily, *unit testing* is a process of covering existing code with tests. And it doesn't supply
+Contrarily, *unit testing* is a process of covering existing code with tests. Unit testing does not supply
 overall code's quality but *may* lead to further refactoring of existing code.
 
-While TDD helps in creating decoupled, cohesive, modular code unit testing
+TDD helps in creating decoupled, cohesive, and modular code. Unit testing
 may contribute to code coupling and create problems for further refactoring.
 
-[This article](https://xebia.com/blog/tdd-not-unit-tests/) explains why TDD is not about unit tests.
+[This article](https://xebia.com/blog/tdd-not-unit-tests/) explains why TDD is not about unit testing.
 
 ### Tests prevent bugs
 
@@ -96,7 +96,7 @@ Most of the time it reveals by testing view and controller layer of the app.
 
 #### Testing for the sake of testing
 
-Symptom: test simple code.
+Symptom: testing of a trivial code.
 
 #### Conditional logic in unit tests
 
