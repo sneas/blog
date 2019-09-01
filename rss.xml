@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Insights]]></title><description><![CDATA[Some thoughts on software design.]]></description><link>https://sneas.github.io/blog</link><generator>RSS for Node</generator><lastBuildDate>Sun, 01 Sep 2019 09:11:22 GMT</lastBuildDate><item><title><![CDATA[The good, the bad and the ugly code]]></title><description><![CDATA[Serves business needs Does not serve business needs Poor quality code The bad The ugly High quality code The good The ugly No matter how…]]></description><link>https://sneas.github.io/blog/the-good-the-bad-and-the-ugly-code/</link><guid isPermaLink="false">https://sneas.github.io/blog/the-good-the-bad-and-the-ugly-code/</guid><pubDate>Sat, 24 Aug 2019 14:50:56 GMT</pubDate><content:encoded>&lt;table&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Insights]]></title><description><![CDATA[Some thoughts on software design.]]></description><link>https://sneas.github.io/blog</link><generator>RSS for Node</generator><lastBuildDate>Sun, 01 Sep 2019 17:03:29 GMT</lastBuildDate><item><title><![CDATA[The good, the bad and the ugly code]]></title><description><![CDATA[Serves business needs Does not serve business needs Poor quality code The bad The ugly High quality code The good The ugly No matter how…]]></description><link>https://sneas.github.io/blog/the-good-the-bad-and-the-ugly-code/</link><guid isPermaLink="false">https://sneas.github.io/blog/the-good-the-bad-and-the-ugly-code/</guid><pubDate>Sat, 24 Aug 2019 14:50:56 GMT</pubDate><content:encoded>&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th&gt;&lt;/th&gt;
@@ -270,11 +270,11 @@ misconceptions.&lt;/p&gt;
 &lt;p&gt;Let’s start with some beliefs and misconceptions. &lt;/p&gt;
 &lt;h3&gt;TDD is about unit testing&lt;/h3&gt;
 &lt;p&gt;&lt;em&gt;TDD&lt;/em&gt; is a design process intended to improve code’s quality and it’s about creating tests before writing code.
-Contrarily, &lt;em&gt;unit testing&lt;/em&gt; is a process of covering existing code with tests. And it doesn’t supply
+Contrarily, &lt;em&gt;unit testing&lt;/em&gt; is a process of covering existing code with tests. Unit testing does not supply
 overall code’s quality but &lt;em&gt;may&lt;/em&gt; lead to further refactoring of existing code.&lt;/p&gt;
-&lt;p&gt;While TDD helps in creating decoupled, cohesive, modular code unit testing
+&lt;p&gt;TDD helps in creating decoupled, cohesive, and modular code. Unit testing
 may contribute to code coupling and create problems for further refactoring.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://xebia.com/blog/tdd-not-unit-tests/&quot;&gt;This article&lt;/a&gt; explains why TDD is not about unit tests.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://xebia.com/blog/tdd-not-unit-tests/&quot;&gt;This article&lt;/a&gt; explains why TDD is not about unit testing.&lt;/p&gt;
 &lt;h3&gt;Tests prevent bugs&lt;/h3&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// plus.js&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;plus&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;a&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; b&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
@@ -323,7 +323,7 @@ observation is: &lt;strong&gt;your project doesn’t need that kind of tests&lt;
 &lt;/ul&gt;
 &lt;p&gt;Most of the time it reveals by testing view and controller layer of the app.&lt;/p&gt;
 &lt;h4&gt;Testing for the sake of testing&lt;/h4&gt;
-&lt;p&gt;Symptom: test simple code.&lt;/p&gt;
+&lt;p&gt;Symptom: testing of a trivial code.&lt;/p&gt;
 &lt;h4&gt;Conditional logic in unit tests&lt;/h4&gt;
 &lt;p&gt;Symptom: conditional logic in unit tests (&lt;code class=&quot;language-text&quot;&gt;if&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;switch&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;while&lt;/code&gt;, etc).&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Deploy dist folder to GitHub Pages with CircleCI]]></title><description><![CDATA[I would like to share how to automatically publish generated () folder to GitHub
 pages with the help of CircleCI. This is not a -based…]]></description><link>https://sneas.github.io/blog/deploy-dist-folder-to-gh-pages-with-circleci/</link><guid isPermaLink="false">https://sneas.github.io/blog/deploy-dist-folder-to-gh-pages-with-circleci/</guid><pubDate>Sun, 07 Oct 2018 07:03:15 GMT</pubDate><content:encoded>&lt;p&gt;I would like to share how to automatically publish generated (&lt;code class=&quot;language-text&quot;&gt;dist&lt;/code&gt;) folder to GitHub

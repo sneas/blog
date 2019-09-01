@@ -11,11 +11,11 @@ misconceptions.</p>
 <p>Let’s start with some beliefs and misconceptions. </p>
 <h3>TDD is about unit testing</h3>
 <p><em>TDD</em> is a design process intended to improve code’s quality and it’s about creating tests before writing code.
-Contrarily, <em>unit testing</em> is a process of covering existing code with tests. And it doesn’t supply
+Contrarily, <em>unit testing</em> is a process of covering existing code with tests. Unit testing does not supply
 overall code’s quality but <em>may</em> lead to further refactoring of existing code.</p>
-<p>While TDD helps in creating decoupled, cohesive, modular code unit testing
+<p>TDD helps in creating decoupled, cohesive, and modular code. Unit testing
 may contribute to code coupling and create problems for further refactoring.</p>
-<p><a href="https://xebia.com/blog/tdd-not-unit-tests/">This article</a> explains why TDD is not about unit tests.</p>
+<p><a href="https://xebia.com/blog/tdd-not-unit-tests/">This article</a> explains why TDD is not about unit testing.</p>
 <h3>Tests prevent bugs</h3>
 <div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token comment">// plus.js</span>
 <span class="token keyword">function</span> <span class="token function">plus</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -64,7 +64,7 @@ observation is: <strong>your project doesn’t need that kind of tests</strong>.
 </ul>
 <p>Most of the time it reveals by testing view and controller layer of the app.</p>
 <h4>Testing for the sake of testing</h4>
-<p>Symptom: test simple code.</p>
+<p>Symptom: testing of a trivial code.</p>
 <h4>Conditional logic in unit tests</h4>
 <p>Symptom: conditional logic in unit tests (<code class="language-text">if</code>, <code class="language-text">switch</code>, <code class="language-text">while</code>, etc).</p></section><hr style="margin-bottom:1.75rem"/><footer><div style="display:flex;margin-bottom:4.375rem"><div class=" gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:50px;height:50px;margin-right:0.875rem;margin-bottom:0;min-width:50px;border-radius:100%"><img src="data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAMCBP/EABYBAQEBAAAAAAAAAAAAAAAAAAMCAf/aAAwDAQACEAMQAAABhaNrzLRT4qg3EHf/xAAcEAACAgIDAAAAAAAAAAAAAAABAgADEiEEERP/2gAIAQEAAQUCw29BSYT3HZcJDytqBYalBCKCv//EABkRAAIDAQAAAAAAAAAAAAAAAAABAhARIv/aAAgBAwEBPwFQ5MFX/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAECEhH/2gAIAQIBAT8Bq3o0MbfT/8QAHBAAAgICAwAAAAAAAAAAAAAAAAECIRARIlGR/9oACAEBAAY/AkuxXvCTjQtxXpSLJN3xLR//xAAbEAEAAgMBAQAAAAAAAAAAAAABABEhMUFRYf/aAAgBAQABPyESDCqzNCl+VL+S3EG3sWRPNo5gJHL2LiWu0VDyFUFn/9oADAMBAAIAAwAAABA0AP8A/8QAGREBAAIDAAAAAAAAAAAAAAAAAQAREDFx/9oACAEDAQE/ECVe53iBU//EABoRAAICAwAAAAAAAAAAAAAAAAABEBEhMUH/2gAIAQIBAT8QQStCZ8jcZP/EABwQAQACAgMBAAAAAAAAAAAAAAEAESExQVGRwf/aAAgBAQABPxCnoAOhGkq6xcNQoigIfeie74M8TKfQo7UaSIDulwAKWNNC/JuUFLMFx4RgqW1uf//Z" alt="Dmitry Snisarenko" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms;border-radius:50%"/><noscript><picture><source srcset="/blog/static/6d0c40f5da119e6ef755147922cdedbd/9b664/profile-pic.jpg 1x,
 /blog/static/6d0c40f5da119e6ef755147922cdedbd/06a10/profile-pic.jpg 1.5x,
