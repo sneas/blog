@@ -9,5 +9,5 @@ description: An easy way to see the difference between the bad and the ugly code
 | **Poor quality code** | The bad | The ugly |
 | **High quality code** | The good | The ugly | 
 
-The point is no matter how good your code is, if it does not serve business needs you might
+No matter how good your code is, if it does not serve business needs you might
 consider removing it from the codebase.
