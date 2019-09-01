@@ -1,7 +1,7 @@
 ---
 title: "A better way of displaying local loader in Angular application"
 date: 2018-12-12T16:16:23+01:00
-description: How to shouw and hide loader automatically
+description: How to show and hide loader automatically.
 ---
 
 ## Not so good

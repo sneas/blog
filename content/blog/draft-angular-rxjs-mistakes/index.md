@@ -1,7 +1,7 @@
 ---
 title: "Angular and RxJS mistakes"
 date: 2019-05-21T10:15:19+02:00
-descriptions: "Some common Angular + RxJS mistakes"
+descriptions: "Some common Angular + RxJS mistakes."
 ---
 Here is a list of popular Angular mistakes.
 

@@ -1,7 +1,7 @@
 ---
 title: "Deploy dist folder to GitHub Pages with CircleCI"
 date: 2018-10-07T09:03:15+02:00
-description: Step by step instruction on automatically building and deploying Github pages with the help of CircleCI
+description: Step by step instruction on automatically building and deploying Github pages with the help of CircleCI.
 ---
 
 I would like to share how to automatically publish generated (`dist`) folder to GitHub

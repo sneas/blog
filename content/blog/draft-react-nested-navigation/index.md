@@ -1,7 +1,8 @@
 ---
-title: "How to create React application with nested routes and breadcrumbs"
+title: "About nested routes and breadcrumbs in React apps"
 date: 2019-09-01T11:00:00+02:00
-descriptions: "In this post I'll show you how to create React application with nested routes and breadcrumbs"
+descriptions: "How to create React application with nested routes and breadcrumbs."
 ---
 
-Here we go.
+Surprisingly, Google and GitHub search does not provide an
+example of a React app with nested navigation and breadcrumbs support.
