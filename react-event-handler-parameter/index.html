@@ -134,10 +134,10 @@ get it back in a callback handler:</p>
 <p><strong>Cons</strong></p>
 <ul>
 <li>
-<p>Param gets serialized while rendering and deserialized in callback which brings certain limitations:</p>
+<p>Param gets serialized while rendering and unserialized in callback which brings certain limitations:</p>
 <ul>
 <li>no function or class instance could be passed into attribute and successfully retrieved in event handler</li>
-<li>parameter looses it’s reference which is not a big deal for sacalar values, but could be misleading
+<li>parameter looses it’s reference which is not a big deal for scalar values, but could be misleading
 in case of objects and arrays</li>
 </ul>
 </li>
