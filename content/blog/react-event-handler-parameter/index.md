@@ -156,8 +156,8 @@ class List extends Component {
 
 **Cons**
 
-* Param gets serialized while rendering and deserialized in callback which brings certain limitations:
+* Param gets serialized while rendering and unserialized in callback which brings certain limitations:
     - no function or class instance could be passed into attribute and successfully retrieved in event handler
-    - parameter looses it's reference which is not a big deal for sacalar values, but could be misleading
+    - parameter looses it's reference which is not a big deal for scalar values, but could be misleading
         in case of objects and arrays
  
