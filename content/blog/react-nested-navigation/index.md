@@ -11,7 +11,7 @@ example of a React app with nested navigation and breadcrumbs.
 
 This article is intended to fix the problem.
 
-Our precondition would be for the application to have single source
+Our precondition would be for the application to have a single source
 of truth for navigation. A tree structure which will be looking similar to:
 
 
