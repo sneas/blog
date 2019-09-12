@@ -4,7 +4,7 @@ module.exports = {
     title: `Insights`,
     author: `Dmitry Snisarenko`,
     description: `Some thoughts on software design.`,
-    siteUrl: `https://sneas.github.io/blog`,
+    siteUrl: `https://sneas.github.io`,
     social: {
       twitter: `sneas`,
     },
