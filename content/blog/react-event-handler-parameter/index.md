@@ -3,7 +3,7 @@ title: "An alternative way of passing parameter into event handler in React"
 date: 2019-03-02T13:07:35+01:00
 ---
 
-There are two popular ways of passing parameters into event handlers in React. Let have a look at them first.
+There are two popular ways of passing parameters into React's event handlers. Let's have a look at them first.
 
 ## Currying
 
@@ -77,14 +77,14 @@ var ListItem = createReactClass({
 
 * New class instance for every item which increases memory consumption
 * Creates coupling between List and ListItem components:
-    - replacing `<ul>` with another tag requires inevitable `ListItem` refactoring which complicates `ListItem` reusage
-    - `ListItem` become container-dependent which limits it's reusage outside of `List`
+    - replacing `<ul>` with another tag requires inevitable `ListItem` refactoring which complicates the reuse of `ListItem`
+    - `ListItem` become container-dependent which limits its reuse outside of `List`
     
-It's time to discuss a perfomant alternative to above methods. Which is
+ Now it's time to discuss a perfomant alternative to the above methods. Which is
     
 ## Parameter in tag's attribute
 
-What if we pass parameter right into tag's attribute while rendering. And extract that param in handler?
+What if we pass parameter right into tag's attribute while rendering. And extract that param in the handler?
 
 ```jsx
 class List extends Component {
@@ -158,6 +158,6 @@ class List extends Component {
 
 * Param gets serialized while rendering and unserialized in callback which brings certain limitations:
     - no function or class instance could be passed into attribute and successfully retrieved in event handler
-    - parameter looses it's reference which is not a big deal for scalar values, but could be misleading
+    - parameter loses its reference which is not a big deal for scalar values, but could be misleading
         in case of objects and arrays
  
