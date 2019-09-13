@@ -1,5 +1,5 @@
 ---
-title: "Regarding nested routes and breadcrumbs in React apps"
+title: "Well-crafted nested routes and breadcrumbs in a React app"
 date: 2019-09-08T11:00:00+02:00
 descriptions: "How to create React application with nested routes and breadcrumbs."
 ---
