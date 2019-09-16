@@ -1,19 +1,19 @@
 ---
 title: "Well-crafted nested routes and breadcrumbs in a React app"
 date: 2019-09-08T11:00:00+02:00
-descriptions: "How to create React application with nested routes and breadcrumbs."
+descriptions:
+  "How to create React application with nested routes and breadcrumbs."
 ---
 
 Demo: https://sneas.github.io/react-nested-routes-example.
 
-Surprisingly, Google and GitHub search does not provide an
-example of a React app with nested navigation and breadcrumbs.
+Surprisingly, Google and GitHub search does not provide an example of a React
+app with nested navigation and breadcrumbs.
 
 This article is intended to fix the problem.
 
-Our precondition would be for the application to have a single source
-of truth for navigation. A tree structure which will be looking similar to:
-
+Our precondition would be for the application to have a single source of truth
+for navigation. A tree structure which will be looking similar to:
 
 ```jsx
 const navigation = [
@@ -32,8 +32,8 @@ const navigation = [
           {
             path: "/headphones",
             label: "Headphones",
-          }
-        ]
+          },
+        ],
       },
       {
         path: "/books",
@@ -51,7 +51,7 @@ const navigation = [
                 path: "/romance",
                 label: "Romance",
               },
-            ]
+            ],
           },
           {
             path: "/fiction",
@@ -66,32 +66,34 @@ const navigation = [
 
 Pages paths will be stacked in depth: `/page-1/sub-page-1/sub-sub-page-1`.
 
-We can achieve the desired outcome with the technique of rendering routes in cycle:
+We can achieve the desired outcome with the technique of rendering routes in
+cycle:
 
-```jsx 
-import {Route, Router} from "react-router-dom";
+```jsx
+import { Route, Router } from "react-router-dom";
 
 const pages = [
   {
-    route: '/',
-    content: () => <HomePage/>
+    route: "/",
+    content: () => <HomePage />,
   },
   {
-    route: '/about',
-    content: () => <About/>
-  }
+    route: "/about",
+    content: () => <About />,
+  },
 ];
 
 const App = () => (
   <Router>
-    {pages.map(page => <Route route={page.route} render={() => page.content}/>)}
+    {pages.map(page => (
+      <Route route={page.route} render={() => page.content} />
+    ))}
   </Router>
 );
-
 ```
 
-Considering router does not support tree structure out of the box, we have to flatten
-our nested routes structure:
+Considering router does not support tree structure out of the box, we have to
+flatten our nested routes structure:
 
 ```jsx
 export const flattenNavigation = navigation =>
@@ -113,7 +115,9 @@ export const buildPaths = (navigation, parentPath = "") =>
     return {
       ...route,
       path,
-      ...(route.routes && { routes: buildPaths(route.routes, path) })
+      ...(route.routes && {
+        routes: buildPaths(route.routes, path),
+      }),
     };
   });
 ```
@@ -123,42 +127,46 @@ navigation structure in one go:
 
 ```jsx
 const routes = flattenRoutes(nestPaths(navigation));
-return (<Router>
-  {routes.reverse().map((route, index) => (
-    <Route
-      key={index}
-      path={route.path}
-      render={() => rouete.content}
-    ></Route>
-  ))}
-</Router>);
+return (
+  <Router>
+    {routes.reverse().map((route, index) => (
+      <Route
+        key={index}
+        path={route.path}
+        render={() => rouete.content}
+      ></Route>
+    ))}
+  </Router>
+);
 ```
 
 Now it's time for navigation and breadcrumbs.
 
-To travers back and forth through our routes tree and render
-navigation and breadcrumbs, it would be convenient to have not only
-`children` for each page, but each page has to know it's parent:
+To travers back and forth through our routes tree and render navigation and
+breadcrumbs, it would be convenient to have not only `children` for each page,
+but each page has to know it's parent:
 
 ```jsx
 export const setupParents = (navigation, parentRoute = null) =>
   navigation.map(route => {
     const withParent = {
       ...route,
-      ...(parentRoute && { parent: parentRoute })
+      ...(parentRoute && {
+        parent: parentRoute,
+      }),
     };
 
     return {
       ...withParent,
       ...(withParent.routes && {
-        routes: setupParents(withParent.routes, withParent)
-      })
+        routes: setupParents(withParent.routes, withParent),
+      }),
     };
   });
-``` 
+```
 
-Parents provided us with enough flexibility to render every page individually as standalone
-component:
+Parents provided us with enough flexibility to render every page individually as
+standalone component:
 
 ```jsx
 const Page = ({ route }) => (
@@ -170,8 +178,8 @@ const Page = ({ route }) => (
 );
 ```
 
-Let's create a helper function to traverse through routes tree
-from leaf to the root:
+Let's create a helper function to traverse through routes tree from leaf to the
+root:
 
 ```js
 export const flattenParents = route => {
@@ -216,4 +224,5 @@ const Breadcrumbs = ({ route }) => (
 );
 ```
 
-The final result is available here: https://github.com/sneas/react-nested-routes-example
+The final result is available here:
+https://github.com/sneas/react-nested-routes-example

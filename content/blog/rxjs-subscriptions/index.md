@@ -4,12 +4,13 @@ date: 2019-09-15T10:00:00+02:00
 descriptions: "Something developer should understand about RxJS' subscriptions before building the first Angular app."
 ---
 
-Here is the list of RxJS' `subscribe` method facts a developer should be aware of to build
-a robust Angular app.
+Here is the list of RxJS' `subscribe` method facts a developer should be aware
+of to build a robust Angular app.
 
-- Subscription is a way to run observable. We can think of observable as a recipe. And `subscribe`
-  as a way to execute the recipe. In other words, we can see observable as a function definition
-  and `subscribe` as a function invocation:
+- Subscription is a way to run observable. We can think of observable as a
+  recipe. And `subscribe` as a way to execute the recipe. In other words, we can
+  see observable as a function definition and `subscribe` as a function
+  invocation:
 
 ```js
 // The line below does not produce HTTP request
@@ -45,8 +46,9 @@ observable.subscribe(users => {
 observable.subscribe(users => console.log(users));
 ```
 
-- `pipe` function "wraps" an observable into another observable and returns a new observable.
-  `pipe` is an immutable operation. It does not change existing observable.
+- `pipe` function "wraps" an observable into another observable and returns a
+  new observable. `pipe` is an immutable operation. It does not change existing
+  observable.
 
 ```js
 const observable = this.httpClient.get("https://api.github.com/users");
@@ -63,10 +65,11 @@ observableWithTap.subscribe();
 
 Omitting unsubscription could be a cause of memory leaks.
 
-Most of the time RxJS 'forgives' us for omitting unsubscription. Because an observer completes
-automatically after the first emission. But it's not always the case and there is no way
-to tell whether observer will be completed after the first emission or not. Especially if the observer's
-creation has been encapsulated in a service.
+Most of the time RxJS 'forgives' us for omitting unsubscription. Because an
+observer completes automatically after the first emission. But it's not always
+the case and there is no way to tell whether observer will be completed after
+the first emission or not. Especially if the observer's creation has been
+encapsulated in a service.
 
 The below example illustrates the problem:
 
@@ -139,8 +142,8 @@ export class MyComponent implements OnDestroy {
 }
 ```
 
-Or we can use `async` pipe and and Angular will manage the subscription automatically and
-unsubscribe whenever needed:
+Or we can use `async` pipe and and Angular will manage the subscription
+automatically and unsubscribe whenever needed:
 
 ```typescript
 @Component({
@@ -156,8 +159,8 @@ export class MyComponent {
 }
 ```
 
-We can also automate observable completion process. This could be useful in case of
-multiple subscriptions in one component:
+We can also automate observable completion process. This could be useful in case
+of multiple subscriptions in one component:
 
 ```typescript
 import { Subject } from "rxjs";
@@ -190,5 +193,5 @@ export class MyComponent implements OnDestroy {
 }
 ```
 
-Hopefully, this information will shed some light on dealing with subscriptions help in building
-memory-efficient Angular applications.
+Hopefully, this information will shed some light on dealing with subscriptions
+help in building memory-efficient Angular applications.
