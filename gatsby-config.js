@@ -1,5 +1,5 @@
 module.exports = {
-  pathPrefix: '/blog',
+  pathPrefix: "/blog",
   siteMetadata: {
     title: `Insights`,
     author: `Dmitry Snisarenko`,
@@ -11,7 +11,7 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-plugin-sitemap`
+      resolve: `gatsby-plugin-sitemap`,
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -45,9 +45,9 @@ module.exports = {
             },
           },
           {
-            resolve: 'gatsby-remark-prismjs',
+            resolve: "gatsby-remark-prismjs",
             options: {
-              inlineCodeMarker: '÷',
+              inlineCodeMarker: "÷",
             },
           },
           `gatsby-remark-copy-linked-files`,
@@ -85,4 +85,4 @@ module.exports = {
       },
     },
   ],
-}
+};
