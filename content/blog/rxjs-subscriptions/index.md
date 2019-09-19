@@ -1,7 +1,9 @@
 ---
 title: "On RxJS subscriptions"
 date: 2019-09-15T10:00:00+02:00
-descriptions: "Something developer should understand about RxJS' subscriptions before building the first Angular app."
+descriptions:
+  "Something developer should understand about RxJS' subscriptions before
+  building the first Angular app."
 ---
 
 Here is the list of RxJS' `subscribe` method facts a developer should be aware
