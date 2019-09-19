@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Insights]]></title><description><![CDATA[Some thoughts on software design.]]></description><link>https://sneas.github.io</link><generator>RSS for Node</generator><lastBuildDate>Thu, 19 Sep 2019 07:32:17 GMT</lastBuildDate><item><title><![CDATA[On RxJS subscriptions]]></title><description><![CDATA[Here is the list of RxJS’  method facts a developer should be aware
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Insights]]></title><description><![CDATA[Some thoughts on software design.]]></description><link>https://sneas.github.io</link><generator>RSS for Node</generator><lastBuildDate>Thu, 19 Sep 2019 07:37:32 GMT</lastBuildDate><item><title><![CDATA[On RxJS subscriptions]]></title><description><![CDATA[Here is the list of RxJS’  method facts a developer should be aware
 of to build a robust Angular app. Subscription is a way to run…]]></description><link>https://sneas.github.io/rxjs-subscriptions/</link><guid isPermaLink="false">https://sneas.github.io/rxjs-subscriptions/</guid><pubDate>Sun, 15 Sep 2019 08:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Here is the list of RxJS’ &lt;code class=&quot;language-text&quot;&gt;subscribe&lt;/code&gt; method facts a developer should be aware
 of to build a robust Angular app.&lt;/p&gt;
 &lt;ul&gt;
@@ -510,11 +510,11 @@ many developers…]]></description><link>https://sneas.github.io/inheritance/</l
 &lt;p&gt;&lt;a href=&quot;http://wiki.c2.com/?GangOfFour&quot;&gt;GoF&lt;/a&gt; stated this over two decades ago. Some
 warmly accepted languages (Go, Rust) refused of inheritance at all. But it seems
 many developers haven’t gotten the problem and still do inheritance to share
-code between classes. The code looks advanced at the first glance. But evolves
-into a chimera in no time.&lt;/p&gt;
-&lt;p&gt;The intention of code’s design is to be future proof and flexible. Ready for
+code between classes. The code looks advanced at first glance. But evolves into
+a chimera in no time.&lt;/p&gt;
+&lt;p&gt;The code’s design intends is to be future proof and flexible. Ready for
 unpredictable changes. And inheritance in combination with changing business
-requirements stand on the way of the perfect system based on our
+requirements stands on the way of the perfect system based on our
 perfectly-crafted &lt;code class=&quot;language-text&quot;&gt;BaseSolver&lt;/code&gt; class.&lt;/p&gt;
 &lt;p&gt;Here is the diagram showing the beginning of disaster:&lt;/p&gt;
 &lt;figure class=&quot;figure&quot;&gt;
@@ -529,13 +529,13 @@ perfectly-crafted &lt;code class=&quot;language-text&quot;&gt;BaseSolver&lt;/cod
 /blog/static/d9c52649c9f4bdb301ed039d26b47be5/6095e/base-class.png 1266w&quot; sizes=&quot;(max-width: 590px) 100vw, 590px&quot; loading=&quot;lazy&quot;&gt;
   &lt;/a&gt;
     &lt;/span&gt;
-    &lt;figcaption class=&quot;figure-caption text-center&quot;&gt;Figure 1. Sharing common methods in base class.&lt;/figcaption&gt;
+    &lt;figcaption class=&quot;figure-caption text-center&quot;&gt;Figure 1. Sharing common methods in the base class.&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;p&gt;It looks good and nice: 2 instances. Similar in essence. Different in
 implementation. Share some base class’ methods.&lt;/p&gt;
 &lt;p&gt;The other day business decides to add the 3rd instance. And it needs only half
-of our &lt;code class=&quot;language-text&quot;&gt;BaseSolver&lt;/code&gt;’s methods. “No problem” we say and create another
-&lt;code class=&quot;language-text&quot;&gt;VeryBaseSolver&lt;/code&gt; with only half of methods implemented:&lt;/p&gt;
+of our &lt;code class=&quot;language-text&quot;&gt;BaseSolver&lt;/code&gt;’s methods. “No problem,” we say and create another
+&lt;code class=&quot;language-text&quot;&gt;VeryBaseSolver&lt;/code&gt; with only half of the methods implemented:&lt;/p&gt;
 &lt;figure class=&quot;figure&quot;&gt;
     &lt;span class=&quot;gatsby-resp-image-wrapper&quot; style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;&gt;
       &lt;a class=&quot;gatsby-resp-image-link&quot; href=&quot;/blog/static/2895b261954acf198a77fc7cb05d3c80/08e2b/very-base-class.png&quot; style=&quot;display: block&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;

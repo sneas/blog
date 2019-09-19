@@ -11,11 +11,11 @@ many developers haven’t gotten the…"/><link as="script" rel="preload" href="
 <p><a href="http://wiki.c2.com/?GangOfFour">GoF</a> stated this over two decades ago. Some
 warmly accepted languages (Go, Rust) refused of inheritance at all. But it seems
 many developers haven’t gotten the problem and still do inheritance to share
-code between classes. The code looks advanced at the first glance. But evolves
-into a chimera in no time.</p>
-<p>The intention of code’s design is to be future proof and flexible. Ready for
+code between classes. The code looks advanced at first glance. But evolves into
+a chimera in no time.</p>
+<p>The code’s design intends is to be future proof and flexible. Ready for
 unpredictable changes. And inheritance in combination with changing business
-requirements stand on the way of the perfect system based on our
+requirements stands on the way of the perfect system based on our
 perfectly-crafted <code class="language-text">BaseSolver</code> class.</p>
 <p>Here is the diagram showing the beginning of disaster:</p>
 <figure class="figure">
@@ -30,13 +30,13 @@ perfectly-crafted <code class="language-text">BaseSolver</code> class.</p>
 /blog/static/d9c52649c9f4bdb301ed039d26b47be5/6095e/base-class.png 1266w" sizes="(max-width: 590px) 100vw, 590px" loading="lazy">
   </a>
     </span>
-    <figcaption class="figure-caption text-center">Figure 1. Sharing common methods in base class.</figcaption>
+    <figcaption class="figure-caption text-center">Figure 1. Sharing common methods in the base class.</figcaption>
 </figure>
 <p>It looks good and nice: 2 instances. Similar in essence. Different in
 implementation. Share some base class’ methods.</p>
 <p>The other day business decides to add the 3rd instance. And it needs only half
-of our <code class="language-text">BaseSolver</code>’s methods. “No problem” we say and create another
-<code class="language-text">VeryBaseSolver</code> with only half of methods implemented:</p>
+of our <code class="language-text">BaseSolver</code>’s methods. “No problem,” we say and create another
+<code class="language-text">VeryBaseSolver</code> with only half of the methods implemented:</p>
 <figure class="figure">
     <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;">
       <a class="gatsby-resp-image-link" href="/blog/static/2895b261954acf198a77fc7cb05d3c80/08e2b/very-base-class.png" style="display: block" target="_blank" rel="noopener">
