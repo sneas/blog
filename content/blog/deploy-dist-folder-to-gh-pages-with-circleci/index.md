@@ -6,8 +6,8 @@ description:
   with the help of CircleCI.
 ---
 
-I would like to share how to automatically publish generated (`dist`) folder to
-GitHub pages with the help of CircleCI. This is **not** a `git subtree`-based
+I would like to share how to automatically publish the generated (`dist`) folder
+to GitHub pages with the help of CircleCI. This is **not** a `git subtree`-based
 solution because keeping automatically generated content in Git repo is... meh.
 
 Our pre-requisites are:
@@ -17,13 +17,13 @@ Our pre-requisites are:
 - `gh-pages` gets auto refreshed with the latest content from `dist` folder on
   each commit
 
-Current blog is successfully working with the same principles. You can check the
-CI configuration out
+The current blog is successfully working with the same principles. You can check
+the CI configuration out
 [here<i class="fa fa-github pl-1"></i>](https://github.com/sneas/blog/tree/master/.circleci).
 
 ### Bash script file
 
-First of all we are going to create bash script and save it in
+First of all, we are going to create a bash script and save it in
 `.circleci/push-gh-pages.sh`.
 
 ```bash
@@ -55,8 +55,8 @@ $ chmod +x .circleci/push-gh-pages.sh
 
 It's time to create/update CI config file `.circleci/config.yml`.
 
-I commented `# docker image` and `# necessary steps to create dist folder`
-because images and steps could very from project to project. If you're wondering
+I commented `# docker image` and `# necessary steps to create a dist folder`
+because images and steps could vary from project to project. If you're wondering
 how it's done for this blog you can refer to
 [this config <i class="fa fa-github pl-1"></i>](https://github.com/sneas/blog/tree/master/.circleci/config.yml).
 
@@ -72,14 +72,14 @@ jobs:
         - master
     steps:
       - checkout
-      # necessary steps to create dist folder
+      # necessary steps to create a dist folder
       - run: sh .circleci/push-gh-pages.sh dist
 ```
 
-Btw it's not necessary to have `dist` folder as a provide for `gh-pages`. You
+Btw it's not necessary to have a `dist` folder as a provider for `gh-pages`. You
 can provide any folder to `.circleci/push-gh-pages.sh`. Ex:
 `sh .circleci/push-gh-pages.sh docs`. You don't have to provide any folder name
-(ex `sh .circleci/push-gh-pages.sh`) and it will be default to `dist`.
+(ex `sh .circleci/push-gh-pages.sh`) and it will default to `dist`.
 
 ### Set up project in CircleCI
 
@@ -109,5 +109,5 @@ Now you can go to `Checkout SSH Keys` section of project settings and click
 
 ![Create And Add User Key](./create-and-add-user-key.png)
 
-We're done. Now you can got to your project, click on the latest build and click
-`Rebuild` button.
+We're done. Now you can get to your project, click on the latest build and click
+the `Rebuild` button.
