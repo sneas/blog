@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Insights]]></title><description><![CDATA[Some thoughts on software design.]]></description><link>https://sneas.github.io</link><generator>RSS for Node</generator><lastBuildDate>Thu, 19 Sep 2019 07:37:32 GMT</lastBuildDate><item><title><![CDATA[On RxJS subscriptions]]></title><description><![CDATA[Here is the list of RxJS’  method facts a developer should be aware
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Insights]]></title><description><![CDATA[Some thoughts on software design.]]></description><link>https://sneas.github.io</link><generator>RSS for Node</generator><lastBuildDate>Thu, 19 Sep 2019 07:43:32 GMT</lastBuildDate><item><title><![CDATA[On RxJS subscriptions]]></title><description><![CDATA[Here is the list of RxJS’  method facts a developer should be aware
 of to build a robust Angular app. Subscription is a way to run…]]></description><link>https://sneas.github.io/rxjs-subscriptions/</link><guid isPermaLink="false">https://sneas.github.io/rxjs-subscriptions/</guid><pubDate>Sun, 15 Sep 2019 08:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Here is the list of RxJS’ &lt;code class=&quot;language-text&quot;&gt;subscribe&lt;/code&gt; method facts a developer should be aware
 of to build a robust Angular app.&lt;/p&gt;
 &lt;ul&gt;
@@ -679,9 +679,9 @@ assertion test &lt;em&gt;everything&lt;/em&gt; &lt;code class=&quot;language-tex
 &lt;h4&gt;Testing for the sake of testing&lt;/h4&gt;
 &lt;p&gt;Symptom: testing of a trivial code.&lt;/p&gt;
 &lt;h4&gt;Conditional logic in unit tests&lt;/h4&gt;
-&lt;p&gt;Symptom: conditional logic in unit tests (&lt;code class=&quot;language-text&quot;&gt;if&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;switch&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;while&lt;/code&gt;, etc).&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Deploy dist folder to GitHub Pages with CircleCI]]></title><description><![CDATA[I would like to share how to automatically publish generated () folder to
-GitHub pages with the help of CircleCI. This is not a -based…]]></description><link>https://sneas.github.io/deploy-dist-folder-to-gh-pages-with-circleci/</link><guid isPermaLink="false">https://sneas.github.io/deploy-dist-folder-to-gh-pages-with-circleci/</guid><pubDate>Sun, 07 Oct 2018 07:03:15 GMT</pubDate><content:encoded>&lt;p&gt;I would like to share how to automatically publish generated (&lt;code class=&quot;language-text&quot;&gt;dist&lt;/code&gt;) folder to
-GitHub pages with the help of CircleCI. This is &lt;strong&gt;not&lt;/strong&gt; a &lt;code class=&quot;language-text&quot;&gt;git subtree&lt;/code&gt;-based
+&lt;p&gt;Symptom: conditional logic in unit tests (&lt;code class=&quot;language-text&quot;&gt;if&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;switch&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;while&lt;/code&gt;, etc).&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Deploy dist folder to GitHub Pages with CircleCI]]></title><description><![CDATA[I would like to share how to automatically publish the generated () folder
+to GitHub pages with the help of CircleCI. This is not a -based…]]></description><link>https://sneas.github.io/deploy-dist-folder-to-gh-pages-with-circleci/</link><guid isPermaLink="false">https://sneas.github.io/deploy-dist-folder-to-gh-pages-with-circleci/</guid><pubDate>Sun, 07 Oct 2018 07:03:15 GMT</pubDate><content:encoded>&lt;p&gt;I would like to share how to automatically publish the generated (&lt;code class=&quot;language-text&quot;&gt;dist&lt;/code&gt;) folder
+to GitHub pages with the help of CircleCI. This is &lt;strong&gt;not&lt;/strong&gt; a &lt;code class=&quot;language-text&quot;&gt;git subtree&lt;/code&gt;-based
 solution because keeping automatically generated content in Git repo is… meh.&lt;/p&gt;
 &lt;p&gt;Our pre-requisites are:&lt;/p&gt;
 &lt;ul&gt;
@@ -690,11 +690,11 @@ solution because keeping automatically generated content in Git repo is… meh.&
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;gh-pages&lt;/code&gt; gets auto refreshed with the latest content from &lt;code class=&quot;language-text&quot;&gt;dist&lt;/code&gt; folder on
 each commit&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Current blog is successfully working with the same principles. You can check the
-CI configuration out
+&lt;p&gt;The current blog is successfully working with the same principles. You can check
+the CI configuration out
 &lt;a href=&quot;https://github.com/sneas/blog/tree/master/.circleci&quot;&gt;here&lt;i class=&quot;fa fa-github pl-1&quot;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;h3&gt;Bash script file&lt;/h3&gt;
-&lt;p&gt;First of all we are going to create bash script and save it in
+&lt;p&gt;First of all, we are going to create a bash script and save it in
 &lt;code class=&quot;language-text&quot;&gt;.circleci/push-gh-pages.sh&lt;/code&gt;.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token shebang important&quot;&gt;#!/bin/sh&lt;/span&gt;
 
@@ -716,8 +716,8 @@ CI configuration out
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;chmod&lt;/span&gt; +x .circleci/push-gh-pages.sh&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h3&gt;CircleCI config file&lt;/h3&gt;
 &lt;p&gt;It’s time to create/update CI config file &lt;code class=&quot;language-text&quot;&gt;.circleci/config.yml&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;I commented &lt;code class=&quot;language-text&quot;&gt;# docker image&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;# necessary steps to create dist folder&lt;/code&gt;
-because images and steps could very from project to project. If you’re wondering
+&lt;p&gt;I commented &lt;code class=&quot;language-text&quot;&gt;# docker image&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;# necessary steps to create a dist folder&lt;/code&gt;
+because images and steps could vary from project to project. If you’re wondering
 how it’s done for this blog you can refer to
 &lt;a href=&quot;https://github.com/sneas/blog/tree/master/.circleci/config.yml&quot;&gt;this config &lt;i class=&quot;fa fa-github pl-1&quot;&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;
@@ -731,12 +731,12 @@ how it’s done for this blog you can refer to
         &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; master
     &lt;span class=&quot;token key atrule&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
       &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; checkout
-      &lt;span class=&quot;token comment&quot;&gt;# necessary steps to create dist folder&lt;/span&gt;
+      &lt;span class=&quot;token comment&quot;&gt;# necessary steps to create a dist folder&lt;/span&gt;
       &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; sh .circleci/push&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;gh&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;pages.sh dist&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Btw it’s not necessary to have &lt;code class=&quot;language-text&quot;&gt;dist&lt;/code&gt; folder as a provide for &lt;code class=&quot;language-text&quot;&gt;gh-pages&lt;/code&gt;. You
+&lt;p&gt;Btw it’s not necessary to have a &lt;code class=&quot;language-text&quot;&gt;dist&lt;/code&gt; folder as a provider for &lt;code class=&quot;language-text&quot;&gt;gh-pages&lt;/code&gt;. You
 can provide any folder to &lt;code class=&quot;language-text&quot;&gt;.circleci/push-gh-pages.sh&lt;/code&gt;. Ex:
 &lt;code class=&quot;language-text&quot;&gt;sh .circleci/push-gh-pages.sh docs&lt;/code&gt;. You don’t have to provide any folder name
-(ex &lt;code class=&quot;language-text&quot;&gt;sh .circleci/push-gh-pages.sh&lt;/code&gt;) and it will be default to &lt;code class=&quot;language-text&quot;&gt;dist&lt;/code&gt;.&lt;/p&gt;
+(ex &lt;code class=&quot;language-text&quot;&gt;sh .circleci/push-gh-pages.sh&lt;/code&gt;) and it will default to &lt;code class=&quot;language-text&quot;&gt;dist&lt;/code&gt;.&lt;/p&gt;
 &lt;h3&gt;Set up project in CircleCI&lt;/h3&gt;
 &lt;p&gt;After registering with your GitHub account you can click &lt;code class=&quot;language-text&quot;&gt;Add Projects&lt;/code&gt; button
 in the navigation panel.&lt;/p&gt;
@@ -859,8 +859,8 @@ your GitHub email and name suffixed with &lt;code class=&quot;language-text&quot
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;We’re done. Now you can got to your project, click on the latest build and click
-&lt;code class=&quot;language-text&quot;&gt;Rebuild&lt;/code&gt; button.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Wow, it's working]]></title><description><![CDATA[And not only working. It’s fully automated with the help of
+&lt;p&gt;We’re done. Now you can get to your project, click on the latest build and click
+the &lt;code class=&quot;language-text&quot;&gt;Rebuild&lt;/code&gt; button.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Wow, it's working]]></title><description><![CDATA[And not only working. It’s fully automated with the help of
 CircleCI. How it works? The blog files are
 stored on GitHub. It’s
 markdown…]]></description><link>https://sneas.github.io/its-working/</link><guid isPermaLink="false">https://sneas.github.io/its-working/</guid><pubDate>Sat, 06 Oct 2018 11:20:56 GMT</pubDate><content:encoded>&lt;p&gt;And not only working. It’s fully automated with the help of
